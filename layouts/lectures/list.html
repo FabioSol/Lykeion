@@ -1,0 +1,48 @@
+{{ define "head"}}
+<link rel="stylesheet" href="{{ "css/types/lecture.css" | relURL }}">
+{{ $firstPage := index .Pages.ByWeight 0 }}
+{{ $neighbors := partial "neighbors.html" . }}
+{{ $prev := index $neighbors "prev" }}
+{{ $next := index $neighbors "next" }}
+
+<script type="module">
+    import { AppNav } from '/js/nav.js';
+
+    AppNav.setMap({
+        left:  {{ if eq .RelPermalink "/lectures/" }}"/"{{ else }}"/lectures/"{{ end }},
+        right: {{ if $firstPage }} "{{ $firstPage.RelPermalink }}" {{ else }}null{{ end }},
+        up: {{ if $prev }}"{{ $prev.RelPermalink }}"{{ else }}null{{ end }},
+        down: {{ if $next }}"{{ $next.RelPermalink }}"{{ else }}null{{ end }},
+    });
+</script>
+{{ end}}
+
+{{ define "main" }}
+<main class="lectures">
+    <div class="lecture-header">
+        <header>
+            <h1>{{ .Title }}</h1>
+            {{ if .Description }}
+            <p class="description">{{ .Description }}</p>
+            {{ end }}
+        </header>
+        {{ .Content }}
+    </div>
+
+    {{ if .Pages }}
+    <section class="lectures-list">
+        {{ range .Pages.ByWeight }}
+        <article class="lecture-item">
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            {{ if .Description }}
+            <p>{{ .Description }}</p>
+            {{ end }}
+            {{ if .Date }}
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01/02/2006" }}</time>
+            {{ end }}
+        </article>
+        {{ end }}
+    </section>
+    {{ end }}
+</main>
+{{ end }}

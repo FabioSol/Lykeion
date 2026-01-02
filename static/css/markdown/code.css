@@ -1,0 +1,85 @@
+.content .code-block {
+    background-color: var(--neutral-50);
+    border: 1px solid var(--neutral-200);
+    border-radius: 0.5rem;
+    margin: 1.5rem 1rem;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.content .code-header {
+    background-color: var(--neutral-100);
+    border-bottom: 1px solid var(--neutral-200);
+    padding: 0.5rem 1rem;
+    font-size: 0.85em;
+}
+
+.content .code-lang {
+    color: var(--neutral-600);
+    font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.content pre {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+}
+
+.content pre code {
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.9em;
+    display: block;
+}
+
+/* Line number table styling */
+.content .chroma .lntable {
+    display: table;
+    width: 100%;
+    border-spacing: 0;
+    padding: 0.2rem;
+}
+
+.content .chroma .lntd {
+    padding: 0;
+    vertical-align: top;
+}
+
+/* Line numbers column */
+.content .chroma .lntd:first-child {
+    text-align: right;
+    user-select: none;
+    width: 0.5%;
+    min-width: 1em;
+}
+
+/* Code content column */
+.content .chroma .lntd:last-child {
+    padding-left: 1rem;
+    border-left: 1px solid var(--neutral-200);
+    width: 100%;
+}
+
+.content .chroma .ln,
+.content .chroma .lnt {
+    color: var(--neutral-400);
+    font-size: 0.85em;
+}
+
+/* Code without line numbers */
+.content .chroma > code {
+    padding: 0.2rem;
+}
+
+/* Inline code */
+.content code {
+    background-color: var(--neutral-100);
+    border-radius: 0.25rem;
+    padding: 0.2em 0.4em;
+    font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+    font-size: 0.9em;
+}

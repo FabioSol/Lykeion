@@ -1,0 +1,31 @@
+baseURL = "/"
+title = "Lykeion"
+languageCode = "en-us"
+theme = "lykeion"
+[author]
+  name = "Fabio Solorzano"
+  homepage = "https://github.com/fabiosolorzano"
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos = true
+    lineNumbersInTable = true
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+[params]
+  description = "A mindful platform for learning through lectures, notes, and slides"
+  author = "Fabio Solorzano"
+  math = true
+  defaultSlideKind = "content"
+[[menu.main]]
+  name = "Lectures"
+  url = "/lectures/"
+  weight = 1

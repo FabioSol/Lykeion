@@ -1,0 +1,20 @@
+{{- $lang := .Type -}}
+{{- $code := .Inner -}}
+{{- $options := dict "lineNos" true "lineNumbersInTable" true -}}
+
+{{- if $lang -}}
+  {{- $options = merge $options (dict "lang" $lang) -}}
+{{- else -}}
+  {{/* Use "text" as default language for plain code blocks to enable line numbers */}}
+  {{- $lang = "text" -}}
+  {{- $options = merge $options (dict "lang" "text") -}}
+{{- end -}}
+
+<div class="code-block">
+  {{- if ne $lang "text" -}}
+    <div class="code-header">
+      <span class="code-lang">{{ $lang }}</span>
+    </div>
+  {{- end -}}
+  {{ highlight $code $lang $options }}
+</div>

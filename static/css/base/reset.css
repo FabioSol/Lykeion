@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    text-underline: none;
+    color: inherit;
+}
+
+/* Prevent browser back/forward swipe navigation */
+html {
+    overscroll-behavior-x: none;
+}
+
+body {
+    overscroll-behavior-x: none;
+}

@@ -1,0 +1,15 @@
+{{ $siblings := .Parent.Pages.ByWeight }}
+{{ $current := . }}
+{{ $prev := "" }}
+{{ $next := "" }}
+{{ range $index, $page := $siblings }}
+    {{ if eq $page $current }}
+        {{ if gt $index 0 }}
+            {{ $prev = index $siblings (sub $index 1) }}
+        {{ end }}
+        {{ if lt $index (sub (len $siblings) 1) }}
+            {{ $next = index $siblings (add $index 1) }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+{{ return (dict "prev" $prev "next" $next) }}

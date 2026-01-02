@@ -1,0 +1,28 @@
+.content ul li input[type="checkbox"]:disabled {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 1px solid var(--neutral-300);
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
+    cursor: default;
+    position: relative;
+    top: 0.125rem;
+}
+
+.content ul li input[type="checkbox"]:disabled:checked {
+    background-color: var(--neutral-100);
+    border-color: var(--neutral-300);
+}
+
+.content ul li input[type="checkbox"]:disabled:checked::after {
+    content: '';
+    position: absolute;
+    left: 0.3rem;
+    width: 0.25rem;
+    height: 0.625rem;
+    border: solid var(--color-text-muted);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}

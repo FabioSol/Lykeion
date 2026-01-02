@@ -1,0 +1,14 @@
+.content a {
+    text-decoration: underline;
+    transition: color 0.3s;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+.content a:hover {
+    background-color: var(--color-highlight);
+}
+
+.content .heading-anchor:hover {
+    background-color: inherit;
+}

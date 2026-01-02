@@ -1,0 +1,26 @@
+.root {
+    display: flex;
+    flex-direction: column;
+}
+
+.root header h1 {
+    font-size: clamp(2rem, 8vw, 5rem);
+    white-space: nowrap;
+    font-weight: 800;
+    margin-bottom: 0;
+    font-variation-settings: "wght" 700, "wdth" 75;
+}
+
+.root header p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: inherit;
+}
+
+.root p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-muted);
+}

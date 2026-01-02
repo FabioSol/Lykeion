@@ -1,0 +1,12 @@
+{{ $neighbors := partial "neighbors.html" . }}
+{{ $prev := index $neighbors "prev" }}
+{{ $next := index $neighbors "next" }}
+<script type="module">
+    import { AppNav } from '/js/nav.js';
+
+    AppNav.setMap({
+        left: {{ .Parent.RelPermalink }},
+        up: {{ if $prev }}"{{ $prev.RelPermalink }}"{{ else }}null{{ end }},
+        down: {{ if $next }}"{{ $next.RelPermalink }}"{{ else }}null{{ end }},
+    })
+</script>

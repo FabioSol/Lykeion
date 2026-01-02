@@ -1,0 +1,47 @@
+.presentation .slide-kind-title h1{
+    font-size: 5rem;
+}
+
+.presentation .slide-kind-title h2{
+    font-size: 4.5rem;
+}
+
+.presentation .slide-kind-title h3{
+    font-size: 4.5rem;
+}
+
+.presentation .slide-kind-title p{
+    font-size: 1.4rem;
+    color: var(--color-text-muted);
+}
+
+
+.presentation .slide-kind-title-content {
+    display: grid;
+    grid-template-rows: 1fr 1fr 5fr;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.presentation .slide-kind-title-content > *:first-child {
+    grid-column: 1 / -1; /* Full width at top */
+    grid-row: 2;
+}
+
+.presentation .slide-kind-title-content > *:first-child h1, h2, h3{
+    font-size: 1.7rem;
+}
+
+.presentation .slide-kind-title-content > *:nth-child(n+2) {
+    grid-row: 3;
+    align-self: start; /* Pull content to top of grid row */
+}
+
+.presentation .slide-split-1 {
+    grid-column: 1;
+}
+.presentation .slide-split-2 {
+    grid-column: 2;
+}
+.presentation .slide-split-3 {
+    grid-column: 3;
+}

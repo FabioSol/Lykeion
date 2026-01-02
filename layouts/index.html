@@ -1,0 +1,21 @@
+{{ define "head"}}
+<link rel="stylesheet" href="{{ "css/types/root.css" | relURL }}">
+<script type="module">
+    import { AppNav } from '/js/nav.js';
+
+    AppNav.setMap({
+        right: "/lectures/",
+    });
+</script>
+{{ end}}
+{{ define "main" }}
+<main class="root">
+    <header>
+        <h1>{{ .Title }}</h1>
+        {{ if .Description }}
+        <p class="description">{{ .Description }}</p>
+        {{ end }}
+    </header>
+    {{ .Content }}
+</main>
+{{ end }}

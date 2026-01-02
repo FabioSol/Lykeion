@@ -1,0 +1,29 @@
+:root {
+    --neutral-50: oklch(98.4% 0.003 247.858);
+    --neutral-100: oklch(96.8% 0.007 247.896);
+    --neutral-200: oklch(92.9% 0.013 255.508);
+    --neutral-300: oklch(86.9% 0.022 252.894);
+    --neutral-400: oklch(70.4% 0.04 256.788);
+    --neutral-500: oklch(55.4% 0.046 257.417);
+    --neutral-600: oklch(44.6% 0.043 257.281);
+    --neutral-700: oklch(37.2% 0.044 257.287);
+    --neutral-800: oklch(27.9% 0.041 260.031);
+    --neutral-900: oklch(20.8% 0.042 265.755);
+    --neutral-950: oklch(12.9% 0.042 264.695);
+
+    --color-bg: var(--neutral-50);
+    --color-text: var(--neutral-900);
+    --color-bg-tooltip: var(--neutral-900);
+    --color-text-tooltip: var(--neutral-50);
+    --color-text-muted: color-mix(in oklch, var(--neutral-900) 50%, transparent);
+    --color-highlight: rgba(255, 183, 0, 0.41);
+
+    --syntax-keyword:  oklch(65% 0.18 300); /* Purple – keywords (if, class, return) */
+    --syntax-function: oklch(68% 0.16 250); /* Blue – functions/methods */
+    --syntax-string:   oklch(72% 0.14 150); /* Green – strings */
+    --syntax-number:   oklch(70% 0.15 80);  /* Orange – numbers */
+    --syntax-comment:  oklch(60% 0.03 260); /* Muted gray-blue – comments */
+    --syntax-operator: oklch(75% 0.02 260); /* Light neutral – operators */
+    --syntax-type:     oklch(70% 0.17 30);  /* Yellow/orange – types & classes */
+
+}

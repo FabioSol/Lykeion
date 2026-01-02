@@ -1,0 +1,64 @@
+{{ define "head"}}
+<link rel="stylesheet" href="{{ "css/types/presentation.css" | relURL }}">
+<link rel="stylesheet" href="{{ "css/types/slides.css" | relURL }}">
+{{ partialCached "content-styles.html" . }}
+<script src="{{ "js/slide-indicator.js" | relURL }}" defer></script>
+<script src="{{ "js/slide-grid.js" | relURL }}" defer></script>
+<script type="module">
+    import { AppNav } from '/js/nav.js';
+
+    AppNav.setMap({
+        up: {{ .Parent.RelPermalink }},
+    });
+</script>
+{{ end}}
+{{ define "main" }}
+{{ $title := .Title }}
+{{ $description := .Description }}
+{{ $showTitleSlide := .Params.showTitleSlide }}
+{{ $defaultKind := .Params.defaultSlideKind | default "content" }}
+
+<main class="content presentation">
+    {{ $content := .RawContent }}
+    {{ $escapedSlides := replace $content `\---` `___ESCAPED_SLIDE___` }}
+    {{ $slideDelimiter := replaceRE `\n---` "\n___SLIDE_BREAK___" $escapedSlides }}
+    {{ $sections := split $slideDelimiter "___SLIDE_BREAK___" }}
+    {{ range $index, $section := $sections }}
+        {{ if eq $index 0 }}
+            {{ if $showTitleSlide }}
+    <div class="slide-wrapper">
+        <div class="slide slide-{{ $index }}">
+                <h1>{{ $title }}</h1>
+                {{ if $description }}
+                <p class="description">{{ $description }}</p>
+                {{ end }}
+        </div>
+    </div>
+            {{ end }}
+        {{ else }}
+    {{ $trimmed := trim $section "\n\r " }}
+    {{ if $trimmed }}
+    {{ $kind := $defaultKind }}
+    {{ with findRE `^\[([^\]]+)\]` $trimmed }}
+    {{ $kind = replaceRE `^\[([^\]]+)\]` `$1` (index . 0) }}
+    {{ $trimmed = replaceRE `^\[([^\]]+)\]\s*` `` $trimmed }}
+    {{ end }}
+    {{ $escapedContent := replace $trimmed `\%%%` `___ESCAPED_SPLIT___` }}
+    <div class="slide-wrapper">
+        <div class="slide slide-{{ $index }} slide-kind-{{ $kind }}">
+                {{ $splits := split $escapedContent "%%%" }}
+                {{ range $idx, $split := $splits }}
+                <div class="slide-split slide-split-{{ $idx }}">
+                    {{ $unescaped := replace $split `___ESCAPED_SPLIT___` `%%%` }}
+                    {{ $unescaped = replace $unescaped `___ESCAPED_SLIDE___` `---` }}
+                    {{ $unescaped | $.Page.RenderString }}
+                </div>
+                {{ end }}
+        </div>
+    </div>
+    {{ end }}
+    {{ end }}
+
+    {{ end }}
+</main>
+{{ end }}

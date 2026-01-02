@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="{{ "css/utils/math.css" | relURL }}">
+<script>
+    window.MathJax = {
+        tex: {
+            displayMath: [['\[', '\]'], ['$$', '$$']],
+            inlineMath: [['$', '$']],
+            processEnvironments: true,
+            macros: {
+                tip: ["\\data{tip=#1}{\\class{tooltip}{#2}}", 2]
+            }
+        },
+        options: {
+            enableMenu: false,
+            menuOptions: {
+                settings: {
+                    enrich: false,
+                },
+            },
+        }
+    };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+

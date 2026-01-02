@@ -1,0 +1,31 @@
+{{ define "head" }}
+<link rel="stylesheet" href="{{ "css/types/document.css" | relURL }}">
+{{ partialCached "content-styles.html" . }}
+<script src="{{ "js/anchor-copy.js" | relURL }}" defer></script>
+<script src="{{ "js/scroll-indicator.js" | relURL }}" defer></script>
+<script src="{{ "js/dynamic-padding.js" | relURL }}" defer></script>
+<script type="module">
+    import { AppNav } from '/js/nav.js';
+
+    AppNav.setMap({
+        left: {{ .Parent.RelPermalink }},
+    });
+
+</script>
+{{ end }}
+
+{{ define "main" }}
+<main class="content document">
+    {{ if .Title }}
+    <header>
+        <h1>{{ .Title }}</h1>
+        {{ if .Description }}
+            {{ if .Params.showDescription }}
+            <p class="description">{{ .Description }}</p>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+
+    {{ .Content }}
+</main>
+{{ end }}
