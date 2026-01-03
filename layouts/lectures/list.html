@@ -9,7 +9,7 @@
     import { AppNav } from {{ "js/nav.js" | relURL }};
 
     AppNav.setMap({
-        left:  {{ if eq .RelPermalink "/lectures/" }}{{ "/" | relURL }}{{ else }}{{ "/lectures/" | relURL}}{{ end }},
+        left:  {{ if .Parent.IsHome }}{{ .Site.Home.RelPermalink }}{{ else }}{{ .Parent.RelPermalink }}{{ end }},
         right: {{ if $firstPage }} "{{ $firstPage.RelPermalink }}" {{ else }}null{{ end }},
         up: {{ if $prev }}"{{ $prev.RelPermalink }}"{{ else }}null{{ end }},
         down: {{ if $next }}"{{ $next.RelPermalink }}"{{ else }}null{{ end }},
