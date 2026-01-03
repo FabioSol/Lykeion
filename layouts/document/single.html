@@ -5,7 +5,7 @@
 <script src="{{ "js/scroll-indicator.js" | relURL }}" defer></script>
 <script src="{{ "js/dynamic-padding.js" | relURL }}" defer></script>
 <script type="module">
-    import { AppNav } from '/js/nav.js';
+    import { AppNav } from {{ "js/nav.js" | relURL }};
 
     AppNav.setMap({
         left: {{ .Parent.RelPermalink }},

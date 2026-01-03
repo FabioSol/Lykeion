@@ -5,7 +5,7 @@
 <script src="{{ "js/slide-indicator.js" | relURL }}" defer></script>
 <script src="{{ "js/slide-grid.js" | relURL }}" defer></script>
 <script type="module">
-    import { AppNav } from '/js/nav.js';
+    import { AppNav } from {{ "js/nav.js" | relURL }};
 
     AppNav.setMap({
         up: {{ .Parent.RelPermalink }},

@@ -6,7 +6,7 @@
 {{ $next := index $neighbors "next" }}
 
 <script type="module">
-    import { AppNav } from '/js/nav.js';
+    import { AppNav } from {{ "js/nav.js" | relURL }};
 
     AppNav.setMap({
         left:  {{ if eq .RelPermalink "/lectures/" }}"/"{{ else }}"/lectures/"{{ end }},
