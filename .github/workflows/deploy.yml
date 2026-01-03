@@ -52,7 +52,6 @@ jobs:
           HUGO_ENVIRONMENT: production
         run: |
           hugo \
-            --themesDir=../.. \
             --source=exampleSite \
             --gc \
             --minify \
