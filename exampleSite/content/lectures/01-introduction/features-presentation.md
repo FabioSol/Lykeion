@@ -115,7 +115,7 @@ Images maintain aspect ratio and responsive sizing
 
 %%%
 
-![Sample Image](/../../../images/sample_image.jpeg)
+![Sample Image](../../../images/sample_image.jpeg)
 
 ---[title-content]
 
