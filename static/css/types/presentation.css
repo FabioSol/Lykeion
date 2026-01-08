@@ -42,6 +42,7 @@
 
 .slide-split {
     flex: 1;
+    margin: 0 1rem;
 }
 
 /* Typography for presentations - larger sizes for viewport space */
