@@ -1,15 +1,15 @@
 ---
-title: "Supported Features"
+title: "Document Features Demo"
 date: 2025-12-31
 draft: false
 type: "document"
 description: "Comprehensive guide to content features supported in the Lykeion theme"
 showDescription: true
-weight: 4
+weight: 6
 math: true
 ---
 
-This document demonstrates all the content authoring capabilities available in Lykeion. Whether you're writing lecture notes, documentation, or essays, these features provide a rich toolkit for academic and technical writing.
+This document demonstrates all the capabilities available in Lykeion documents.
 
 ## Markdown Support
 
@@ -19,45 +19,46 @@ Lykeion provides full GitHub-flavored markdown support for rich content authorin
 
 You can use various text formatting options to emphasize content:
 
-**Bold text** for strong emphasis
+**Bold text** for strong emphasis: `**Bold text**`
 
-*Italic text* for subtle emphasis
+*Italic text* for subtle emphasis: `*Italic text*`
 
-~~Strikethrough~~ for corrections or deprecated content
+~~Strikethrough~~ for corrections or deprecated content: `~~Strikethrough~~`
 
-`Inline code` for technical terms, commands, or short code snippets
+`Inline code` for technical terms, commands, or short code snippets: `` `Inline code` ``
 
-You can also combine them: **_bold and italic_** or **`bold code`**
+You can also combine them:
+- **_bold and italic_**: `**_bold and italic_**`
+- **`bold code`**: `` **`bold code`** ``
+- *`italic code`*: `` *`italic code`* ``
 
 ## Headings
 
-The theme supports all six heading levels, though typically you'll use h2-h4 for document structure:
+The theme supports all six heading levels (using `#` symbols), though typically you'll use h2-h4 for document structure:
 
 # First Level Heading
+`# First Level Heading`
 
 ## Second Level Heading
+`## Second Level Heading`
 
 ### Third Level Heading
-
-Content under third level heading.
+`### Third Level Heading`
 
 #### Fourth Level Heading
-
-Content under fourth level heading.
+`#### Fourth Level Heading`
 
 ##### Fifth Level Heading
-
-Content under fifth level heading.
+`##### Fifth Level Heading`
 
 ###### Sixth Level Heading
-
-Content under sixth level heading.
+`###### Sixth Level Heading`
 
 ## Lists
 
 Lykeion supports both unordered and ordered lists with proper nesting:
 
-**Unordered Lists:**
+**Unordered Lists** (use `- ` with indentation):
 - First item
 - Second item
   - Nested item
@@ -65,7 +66,7 @@ Lykeion supports both unordered and ordered lists with proper nesting:
     - Deeply nested item
 - Third item
 
-**Ordered Lists:**
+**Ordered Lists** (use `1. ` with indentation):
 1. First step
 2. Second step
    1. Nested step
@@ -83,24 +84,24 @@ Lykeion supports both unordered and ordered lists with proper nesting:
 
 Lykeion supports various types of links:
 
-External links: [Visit Anthropic](https://anthropic.com)
+**External links:** [Visit Anthropic](https://anthropic.com)
 
-Internal links: [Back to Introduction](../02-principles/writing-content.md)
+- syntax: `[Visit Anthropic](https://anthropic.com)` 
 
-Reference-style links can make your markdown more readable when you have many links in a paragraph. For example, you might want to reference [Anthropic][anthropic] and [Hugo][hugo] multiple times.
+**Internal links:** [Back to Introduction](../02-principles/writing-content.md)
 
-[anthropic]: https://anthropic.com
-[hugo]: https://gohugo.io
+- syntax: `[Back to Introduction](../02-principles/writing-content.md)` 
+
 
 Links inherit text color for minimal visual disruption while remaining accessible.
 
 ## Blockquotes
 
-Blockquotes are styled for clear visual distinction while maintaining readability:
+Blockquotes are styled for clear visual distinction while maintaining readability. Use `>` at the start of each line:
 
 > Typography serves as the functional substrate for sustained reading. The design decisions embedded in typeface selection, line length, and spacing directly influence cognitive load and comprehension velocity.
 
-Multi-paragraph blockquotes are also supported:
+**Multi-paragraph blockquotes** (leave an empty `>` between paragraphs):
 
 > Font selection prioritizes legibility and reading comfort over stylistic expression.
 >
@@ -108,9 +109,17 @@ Multi-paragraph blockquotes are also supported:
 >
 > -- Robert Bringhurst, *The Elements of Typographic Style*
 
+```markdown
+> First paragraph.
+>
+> Second paragraph.
+>
+> -- Author, *Book Title*
+```
+
 ## Code Blocks
 
-Code blocks support syntax highlighting for numerous programming languages:
+Code blocks support syntax highlighting for numerous programming languages. Syntax: ` ```{language} ` followed by your code and closing ` ``` `
 
 **Python:**
 ```python
@@ -169,21 +178,29 @@ for file in *.md; do
 done
 ```
 
-All code blocks include line numbers and use a colorblind-friendly syntax highlighting palette.
+All code blocks include line numbers and use a colorblind-friendly syntax highlighting palette. If language is omitted, there is no syntax highlighting or header.
 
 ## Mathematical Expressions
 
 Lykeion supports LaTeX mathematical notation through MathJax, enabling both inline and display mathematics:
 
-**Inline Math:**
-You can include mathematical expressions inline, such as $E = mc^2$ or $\sum_{i=1}^{n} x_i$, which flow naturally with the text.
+**Inline Math:** Wrap expressions in `$...$`
 
-**Display Math:**
+You can include mathematical expressions inline, such as $E = mc^2$ (written as `$E = mc^2$`) or $\sum_{i=1}^{n} x_i$ (written as `$\sum_{i=1}^{n} x_i$`), which flow naturally with the text.
+
+**Display Math:** Wrap expressions in `$$...$$`
+
 For more complex expressions, use display mode:
 
 $$
 f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi) e^{2\pi i \xi x} d\xi
 $$
+
+```latex
+$$
+f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi) e^{2\pi i \xi x} d\xi
+$$
+```
 
 **Multiple Equations:**
 
@@ -196,6 +213,16 @@ $$
 \end{aligned}
 $$
 
+```latex
+$$
+\begin{aligned}
+\nabla \cdot \mathbf{E} &= \frac{\rho}{\epsilon_0} \\\
+\nabla \cdot \mathbf{B} &= 0 \\\
+\nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t}
+\end{aligned}
+$$
+```
+
 **Matrices:**
 
 $$
@@ -205,6 +232,24 @@ a_{21} & a_{22} & a_{23} \\\
 a_{31} & a_{32} & a_{33}
 \end{pmatrix}
 $$
+
+```latex
+$$
+\mathbf{A} = \begin{pmatrix}
+a_{11} & a_{12} & a_{13} \\\
+a_{21} & a_{22} & a_{23} \\\
+a_{31} & a_{32} & a_{33}
+\end{pmatrix}
+$$
+```
+
+**Math Tooltips:** Use the `\tip` macro for hover explanations
+
+$\tip{Energy}{E}=\tip{mass}{m}\tip{speed of light squared}{c}^2$
+
+```latex
+$\tip{Energy}{E}=\tip{mass}{m}\tip{speed of light squared}{c}^2$
+```
 
 ## Tables
 
@@ -218,13 +263,26 @@ Tables are rendered with clean styling and rounded corners:
 | Tables | Full | With alignment support |
 | Images | Full | Responsive sizing |
 
-**Table with Alignment:**
+```markdown
+| Feature | Support Level | Notes |
+|---------|--------------|-------|
+| Markdown | Full | GitHub-flavored markdown |
+| Syntax Highlighting | Full | 100+ languages |
+```
+
+**Table with Alignment:** Use `:` for alignment (`:---` left, `:---:` center, `---:` right)
 
 | Left Aligned | Center Aligned | Right Aligned |
 |:------------|:--------------:|--------------:|
 | Text | Text | Text |
 | More text | More text | More text |
 | Even more | Even more | Even more |
+
+```markdown
+| Left Aligned | Center Aligned | Right Aligned |
+|:------------|:--------------:|--------------:|
+| Text | Text | Text |
+```
 
 **Complex Table:**
 
@@ -237,29 +295,42 @@ Tables are rendered with clean styling and rounded corners:
 
 ## Images
 
-Images are displayed responsively and maintain their aspect ratio:
+Images are displayed responsively and maintain their aspect ratio. Syntax: `![Alt text](path/to/image.jpg)`
 
 ![Sample Image](/images/sample_image.jpeg)
+
+```markdown
+![Sample Image](/images/sample_image.jpeg)
+```
 
 Images automatically scale to fit the content area while preserving quality and aspect ratio.
 
 ## Horizontal Rules
 
-Use horizontal rules to create visual separation between sections:
+Use horizontal rules (`---` or `***`) to create visual separation between sections:
 
 ---
+
+```markdown
+---
+```
 
 Content continues after the horizontal rule.
 
 ## Task Lists
 
-GitHub-style task lists are also supported:
+GitHub-style task lists are also supported. Use `- [x]` for checked and `- [ ]` for unchecked:
 
 - [x] Complete initial theme setup
 - [x] Implement presentation layout
 - [x] Implement document layout
 - [ ] Add more example content
 - [ ] Write comprehensive documentation
+
+```markdown
+- [x] Completed task
+- [ ] Incomplete task
+```
 
 ## Nested Content
 

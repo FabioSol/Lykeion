@@ -34,12 +34,13 @@ Modern web interfaces prioritize engagement over comprehension.
 
 Content becomes the sole visual figure.
 
----[title-content]
+---[content]
 
 ## Design Philosophy
 Nine hierarchical principles guide every decision:
 
 %%%
+
 1. Content as sole visual figure
 2. Clear visual hierarchy
 3. Cognitive chunking
