@@ -27,11 +27,13 @@
         {{ if eq $index 0 }}
             {{ if $showTitleSlide }}
     <div class="slide-wrapper">
-        <div class="slide slide-{{ $index }}">
+        <div class="slide slide-{{ $index }} slide-kind-title">
+            <div class="slide-split slide-split-0">
                 <h1>{{ $title }}</h1>
                 {{ if $description }}
                 <p class="description">{{ $description }}</p>
                 {{ end }}
+            </div>
         </div>
     </div>
             {{ end }}

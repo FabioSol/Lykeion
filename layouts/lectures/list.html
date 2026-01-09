@@ -32,7 +32,7 @@
     {{ if .Pages }}
     <section class="lectures-list">
         {{ range .Pages.ByWeight }}
-        <article class="lecture-item">
+        <article class="lecture-item {{ .Type }}-item">
             <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
             {{ if .Description }}
             <p>{{ .Description }}</p>

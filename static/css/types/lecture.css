@@ -24,3 +24,23 @@
     float: right;
     color: var(--color-text-muted);
 }
+
+.lectures .lectures-list article.presentation-item h2::before ,.lectures .lectures-list article.document-item h2::before{
+    content: "";
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+.lectures .lectures-list article.presentation-item h2::before{
+    background-image: url('/icons/presentation.svg');
+}
+
+.lectures .lectures-list article.document-item h2::before{
+    background-image: url('/icons/document.svg');
+}

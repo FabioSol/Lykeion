@@ -92,17 +92,17 @@
 .presentation p,
 .presentation li {
     line-height: 1.7;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .presentation ul,
 .presentation ol {
-    margin-bottom: 2rem;
+    margin-bottom: 0.2rem;
     padding-left: 2rem;
 }
 
 .presentation li {
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
 }
 
 .presentation li:last-child {

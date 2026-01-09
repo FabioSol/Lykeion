@@ -45,3 +45,7 @@
 .presentation .slide-split-3 {
     grid-column: 3;
 }
+
+.presentation .slide-split {
+    max-height: 100%;
+}
