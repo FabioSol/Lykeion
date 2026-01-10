@@ -26,4 +26,5 @@
     --syntax-operator: oklch(75% 0.02 260); /* Light neutral – operators */
     --syntax-type:     oklch(70% 0.17 30);  /* Yellow/orange – types & classes */
 
+    --edge-intensity: 1;
 }

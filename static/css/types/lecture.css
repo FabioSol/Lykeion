@@ -75,7 +75,7 @@
     .lectures .lecture-header {
         grid-column: 1;
         grid-row: 1;
-        padding: 1rem;
+        padding: 2rem 1rem;
     }
 
     .lectures .lectures-list {
@@ -93,7 +93,7 @@
     .lectures .lecture-header {
         grid-column: 1;
         grid-row: 1;
-        padding: 0.75rem;
+        padding: 2rem 0.75rem;
     }
 
     .lectures .lectures-list {
@@ -113,7 +113,7 @@
 
 @media (max-width: 480px) and (orientation: portrait) {
     .lectures .lecture-header {
-        padding: 0.5rem;
+        padding: 2rem 0.5rem;
     }
 
     .lectures .lecture-header h1 {

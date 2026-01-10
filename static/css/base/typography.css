@@ -13,3 +13,166 @@ h1 {
     margin-bottom: 1rem;
     font-variation-settings: "wght" 700, "wdth" 75;
 }
+
+/* Document Typography */
+.document h1 {
+    font-size: 4em;
+}
+
+.document h2 {
+    font-size: 3em;
+}
+
+.document h3 {
+    font-size: 2.5em;
+}
+
+.document h4,
+.document h5,
+.document h6 {
+    font-size: 2em;
+}
+
+.document p,
+.document ul {
+    line-height: 1.5;
+    font-size: 1.2em;
+}
+
+/* Lecture List Typography */
+.lectures .lectures-list article h2 {
+    font-size: inherit;
+}
+
+.lectures .lectures-list article time {
+    color: var(--color-text-muted);
+}
+
+/* Scroll Indicator Typography */
+.scroll-dot-label {
+    font-size: 0.7em;
+    color: var(--color-text);
+}
+
+.scroll-dot[data-level="1"] .scroll-dot-label {
+    font-size: 0.75em;
+}
+
+.scroll-dot[data-level="2"] .scroll-dot-label {
+    font-size: 0.7em;
+}
+
+.scroll-dot[data-level="3"] .scroll-dot-label {
+    font-size: 0.65em;
+}
+
+.scroll-dot[data-level="4"] .scroll-dot-label,
+.scroll-dot[data-level="5"] .scroll-dot-label,
+.scroll-dot[data-level="6"] .scroll-dot-label {
+    font-size: 0.6em;
+}
+
+/* Responsive Font Scaling */
+
+/* Tablet: 768px to 1024px */
+@media (max-width: 1024px) {
+    html {
+        font-size: 110%; /* 17px */
+    }
+
+    .document h1 {
+        font-size: 2.75em;
+    }
+
+    .document h2 {
+        font-size: 2.25em;
+    }
+
+    .document h3 {
+        font-size: 1.875em;
+    }
+}
+
+/* Mobile: up to 768px */
+@media (max-width: 768px) {
+    html {
+        font-size: 110%; /* 16.25px */
+    }
+
+    .document h1 {
+        font-size: 2.7em;
+    }
+
+    .document h2 {
+        font-size: 2.2em;
+    }
+
+    .document h3 {
+        font-size: 1.8em;
+    }
+
+    .document h4,
+    .document h5,
+    .document h6 {
+        font-size: 1.4em;
+    }
+
+    .document p {
+        line-height: 1.6;
+        font-size: 1em;
+    }
+
+    .lectures .lectures-list article h2 {
+        font-size: 1.5rem;
+    }
+
+    .lectures .lectures-list article time {
+        font-size: inherit;
+    }
+
+    .scroll-dot-label {
+        font-size: 0.8125em;
+    }
+}
+
+/* Small mobile: up to 480px */
+@media (max-width: 480px) {
+    html {
+        font-size: 100%; /* 15px */
+    }
+
+    .document h1 {
+        font-size: 3em;
+    }
+
+    .document h2 {
+        font-size: 2.5em;
+    }
+
+    .document h3 {
+        font-size: 2em;
+    }
+
+    .document h4,
+    .document h5,
+    .document h6 {
+        font-size: 1.5em;
+    }
+
+    .document p {
+        line-height: 1.6;
+        font-size: 1em;
+    }
+
+    .lectures .lecture-header h1 {
+        font-size: 1.875rem;
+    }
+
+    .lectures .lectures-list article h2 {
+        font-size: 1.375rem;
+    }
+
+    .lectures .lectures-list article time {
+        font-size: 1.0625rem;
+    }
+}
