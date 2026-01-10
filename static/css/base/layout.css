@@ -27,3 +27,38 @@ main {
     flex: 1;
     justify-content: center;
 }
+
+/* Tablet: 768px to 1024px */
+@media (max-width: 1024px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        grid-template-columns: 0.5fr 9fr 0.5fr;
+    }
+}
+
+/* Mobile: up to 768px */
+@media (max-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+
+    body {
+        grid-template-columns: 0.25fr 9.5fr 0.25fr;
+        grid-template-rows: 1.5fr 15fr 2fr;
+    }
+}
+
+/* Small mobile: up to 480px */
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+
+    body {
+        grid-template-columns: 0.1fr 9.8fr 0.1fr;
+        grid-template-rows: 1fr 15fr 1.5fr;
+    }
+}
