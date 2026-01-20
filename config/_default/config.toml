@@ -1,7 +1,6 @@
 baseURL = "/"
 title = "Lykeion"
 languageCode = "en-us"
-theme = "lykeion"
 [author]
   name = "Fabio Solorzano"
   homepage = "https://github.com/fabiosolorzano"
