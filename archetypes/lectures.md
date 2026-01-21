@@ -6,7 +6,5 @@ description:
 weight:
 ---
 
-# {{ replace .Name "-" " " | title }}
-
 Detailed description of the lecture.
 
