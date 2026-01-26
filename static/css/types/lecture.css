@@ -4,6 +4,21 @@
     grid-template-rows: 1fr 1fr 2fr;
 }
 
+.lectures h1{
+    font-size: 2rem;
+    text-wrap: balance;
+}
+
+.lectures h2{
+    font-size: 1.5rem;
+    text-wrap: balance;
+}
+
+.lectures p{
+    font-size: 1rem;
+    text-wrap: balance;
+}
+
 .lectures .lecture-header{
     grid-column: 1;
     grid-row: 2 / span 2;
@@ -14,6 +29,7 @@
     grid-column: 2;
     grid-row:1 / span 3;
     overflow-y: scroll;
+    padding-right: 8px;
     scrollbar-width: thin; /* Firefox */
     scrollbar-color: var(--neutral-200) transparent; /* Firefox */
 }
@@ -36,6 +52,27 @@
     background-color: var(--neutral-200);
 }
 
+.lectures .lectures-list {
+    --fade: 5px;
+
+    mask-image: linear-gradient(
+            to bottom,
+            transparent,
+            black var(--fade),
+            black calc(100% - var(--fade)),
+            transparent
+    );
+
+    -webkit-mask-image: -webkit-linear-gradient(
+            top,
+            transparent,
+            black var(--fade),
+            black calc(100% - var(--fade)),
+            transparent
+    );
+}
+
+
 .lectures .lectures-list article{
     padding-bottom: 1.5rem;
 }
@@ -48,13 +85,13 @@
 .lectures .lectures-list article.presentation-item h2::before ,.lectures .lectures-list article.document-item h2::before{
     content: "";
     display: inline-block;
-    width: 1.2em;
-    height: 1.2em;
-    margin-right: 0.5rem;
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 0.2rem;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    vertical-align: middle;
+    vertical-align: -0.18em;
 }
 
 .lectures .lectures-list article.presentation-item h2::before{

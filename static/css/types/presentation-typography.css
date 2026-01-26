@@ -1,0 +1,98 @@
+.slide {
+    container-type: size;
+}
+
+.presentation h1 {
+    font-weight: 700;
+    margin-bottom: 3.5cqh;
+    line-height: 1;
+}
+
+.presentation h2 {
+    font-weight: 600;
+    margin-bottom: 3cqh;
+    line-height: 1;
+}
+
+.presentation h3 {
+    font-weight: 500;
+    margin-bottom: 2cqh;
+    line-height: 1;
+}
+
+.presentation h4 {
+    font-weight: 500;
+    margin-bottom: 1cqh;
+    line-height: 1;
+}
+
+.presentation h5 {
+    font-weight: 500;
+    margin-bottom: 1cqh;
+    line-height: 1;
+}
+
+.presentation h6 {
+    font-weight: 500;
+    margin-bottom: 1cqh;
+    line-height: 1;
+}
+
+.presentation p,
+.presentation li {
+    line-height: 1.4;
+}
+
+.presentation ul,
+.presentation ol {
+    padding-left: 4cqh;
+}
+
+.presentation li:last-child {
+    margin-bottom: 0;
+}
+
+.presentation strong {
+    font-weight: 700;
+}
+
+/* Add more vertical rhythm */
+.presentation h1 + p,
+.presentation h2 + p,
+.presentation h3 + p,
+.presentation h4 + p,
+.presentation h5 + p,
+.presentation h6 + p {
+    margin-top: 2cqh;
+}
+
+/* sizing */
+.presentation h1 {
+    font-size: 12cqh;
+}
+
+.presentation h2 {
+    font-size: 8cqh;
+}
+
+.presentation h3 {
+    font-size: 6.5cqh;
+}
+
+.presentation h4 {
+    font-size: 5.75cqh;
+}
+
+.presentation h5 {
+    font-size: 5.25cqh;
+}
+
+.presentation h6 {
+    font-size: 4.75cqh;
+}
+
+.presentation p,
+.presentation li,
+.presentation tr {
+    font-size: 4cqh;
+}

@@ -1,3 +1,5 @@
+@import url("presentation-typography.css");
+
 .presentation {
     height: 100%;
     overflow-x: auto;
@@ -24,11 +26,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    content-visibility: auto;
 }
 
 .slide {
-    width: 80%;
-    aspect-ratio: 16 / 9;
+    height: 100%;
+    aspect-ratio: 12/5;
     align-items: center;
     display: flex;
     overflow: hidden;
@@ -42,108 +45,39 @@
 
 .slide-split {
     flex: 1;
-    margin: 0 1rem;
-}
-
-/* Typography for presentations - larger sizes for viewport space */
-.presentation h1 {
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    line-height: 1;
-    font-size: 3.2rem;
-
-}
-
-.presentation h2 {
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    line-height: 1;
-    font-size: 2.5rem;
-}
-
-.presentation h3 {
-    font-weight: 500;
-    margin-bottom: 1.25rem;
-    line-height: 1;
-    font-size: 2.2rem;
-}
-
-.presentation h4 {
-    font-weight: 500;
-    margin-bottom: 1rem;
-    line-height: 1;
-    font-size: 1.9rem;
-}
-
-.presentation h5 {
-    font-weight: 500;
-    margin-bottom: 1rem;
-    line-height: 1;
-    font-size: 1.6rem;
-}
-
-.presentation h6 {
-    font-weight: 500;
-    margin-bottom: 1rem;
-    line-height: 1;
-    font-size: 1.3rem;
-}
-
-.presentation p,
-.presentation li {
-    line-height: 1.7;
-    margin-bottom: 0.5rem;
-}
-
-.presentation ul,
-.presentation ol {
-    margin-bottom: 0.2rem;
-    padding-left: 2rem;
-}
-
-.presentation li {
-    margin-bottom: 0.2rem;
-}
-
-.presentation li:last-child {
-    margin-bottom: 0;
-}
-
-.presentation strong {
-    font-weight: 700;
-}
-
-/* Add more vertical rhythm */
-.presentation h1 + p,
-.presentation h2 + p,
-.presentation h3 + p {
-    margin-top: 0.5rem;
-}
-
-.presentation h2 {
-    margin-top: 2rem;
-}
-
-.presentation h3 {
-    margin-top: 1.5rem;
+    margin: 0 8cqh;
 }
 
 /* Scroll indicator at bottom */
 .slide-indicator {
     position: fixed;
-    bottom: 2vh;
+    bottom: 1em;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 1vw;
+    gap: 0.5em;
     z-index: 100;
-    padding: 1vh 2vw;
+    padding: 0.5em 1em;
     transition: opacity 0.3s ease;
 }
 
+@media (max-width: 768px) {
+    .slide-indicator {
+        display: none;
+    }
+    body {
+        grid-template-columns: 1fr 24fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    .main-wrapper{
+        max-height: 100vh;
+        grid-row: 1;
+    }
+}
+
 .slide-dot {
-    width: 10px;
-    height: 10px;
+    width: 0.7em;
+    height: 0.7em;
     border-radius: 50%;
     background-color: var(--color-text);
     opacity: 0.3;
@@ -158,4 +92,63 @@
 
 .slide-dot:hover {
     opacity: 0.6;
+}
+
+.rotate-hint {
+    display: none;
+}
+
+@media (orientation: portrait) {
+    .presentation::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+    }
+
+    .presentation::after {
+        content: "";
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 4em;
+        height: 7em;
+        border: 3px solid var(--color-text-muted);
+        border-radius: 0.6em;
+        transform-origin: center;
+        transform: translate(-50%, -50%) rotate(0deg);
+        animation: rotate-device 2s ease-in-out infinite;
+        z-index: 1001;
+    }
+
+    .rotate-hint {
+        display: flex;
+        position: fixed;
+        top: calc(50% + 5em);
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--color-text-muted);
+        font-size: 1.2em;
+        text-align: center;
+        z-index: 1001;
+    }
+
+    .presentation > * {
+        display: none;
+    }
+}
+
+@keyframes rotate-device {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    40% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    70% {
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
 }

@@ -1,2 +1,2 @@
 demo:
-	hugo --themesDir=../.. --source=exampleSite
+	hugo serve --themesDir=../.. --source=exampleSite

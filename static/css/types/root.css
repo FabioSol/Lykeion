@@ -1,25 +1,29 @@
+body{
+    position: relative;
+}
 .root {
     display: flex;
     flex-direction: column;
+    contain: strict;
 }
 
 .root header h1 {
-    font-size: clamp(2rem, 8vw, 5rem);
+    font-size: 4rem; /* Fallback, this behavior is managed by root/fit-title.js*/
     white-space: nowrap;
     font-weight: 800;
     margin-bottom: 0;
-    font-variation-settings: "wght" 700, "wdth" 75;
+    text-overflow: ellipsis;
 }
 
 .root header p {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     color: inherit;
 }
 
 .root p {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     color: var(--color-text-muted);

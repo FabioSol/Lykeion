@@ -1,3 +1,5 @@
+@import url("document-typography.css");
+
 .main-wrapper {
     grid-row: 1 / span 3;
     max-height: none;
@@ -18,57 +20,6 @@ main{
 
 .document::-webkit-scrollbar {
     display: none;
-}
-
-.document h1{
-    margin-top: 10vh;
-}
-
-.document h1:first-child{
-    margin-top: 15vh;
-}
-
-.document h2{
-    margin-top: 8vh;
-}
-
-.document h3{
-    margin-top: 4vh;
-}
-
-.document h4, h5, h6{
-    margin-top: 3vh;
-}
-
-.document h5{
-    text-indent: 1vw;
-}
-
-.document h6{
-    text-indent: 2vw;
-}
-
-.document p{
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    text-align: justify;
-    text-indent: 2vh;
-}
-
-.document ul, .document ol{
-    margin-left: 3vw;
-}
-
-.document hr{
-    margin: 4vh 0;
-    border: none;
-    border-top: 1px solid var(--color-text-muted);
-}
-
-.document h1, .document h2, .document h3,
-.document h4, .document h5, .document h6 {
-    scroll-margin-top: 20vh;
-    position: relative;
 }
 
 .document .heading-anchor {
@@ -159,65 +110,33 @@ main{
     transform: translateX(0);
 }
 
+.scroll-dot-label {
+    color: var(--color-text);
+}
+
 .scroll-dot-label:hover {
     opacity: 1 !important;
 }
 
+.scroll-dot[data-level="1"] .scroll-dot-label {
+    font-size: 0.75em;
+}
+
 .scroll-dot[data-level="2"] .scroll-dot-label {
     padding-left: 1vw;
+    font-size: 0.7em;
 }
 
 .scroll-dot[data-level="3"] .scroll-dot-label {
     padding-left: 2vw;
+    font-size: 0.65em;
 }
 
 .scroll-dot[data-level="4"] .scroll-dot-label,
 .scroll-dot[data-level="5"] .scroll-dot-label,
 .scroll-dot[data-level="6"] .scroll-dot-label {
     padding-left: 3vw;
-}
-
-/* Edge indicators for navigation boundaries */
-.document::before,
-.document::after {
-    content: '';
-    position: fixed;
-    left: 0;
-    right: 0;
-    height: 3vh;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 50;
-}
-
-.document::before {
-    top: 0;
-    background: linear-gradient(to bottom, var(--color-text), transparent);
-}
-
-.document::after {
-    bottom: 0;
-    background: linear-gradient(to top, var(--color-text), transparent);
-}
-
-.document.near-top::before {
-    opacity: 0.05;
-}
-
-.document.near-bottom::after {
-    opacity: 0.05;
-}
-
-.document.edge-indicator-up::before,
-.document.edge-indicator-down::after {
-    opacity: calc(0.1 * var(--edge-intensity, 1));
-    animation: edge-pulse 0.5s ease-out;
-}
-
-@keyframes edge-pulse {
-    0%, 100% { opacity: 0.05; }
-    50% { opacity: calc(0.15 * var(--edge-intensity, 1)); }
+    font-size: 0.6em;
 }
 
 /* Mobile: up to 768px */

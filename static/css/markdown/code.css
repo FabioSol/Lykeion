@@ -7,6 +7,11 @@
     max-width: 100%;
 }
 
+.slide .code-block {
+    border-radius: 2.5cqh;
+    margin:  1cqh 0;
+}
+
 .content .code-header {
     background-color: var(--neutral-100);
     border-bottom: 1px solid var(--neutral-200);
@@ -14,12 +19,21 @@
     font-size: 0.85em;
 }
 
+.slide .code-header {
+    padding: 2cqh 5cqh;
+    font-size: 3.6cqh;
+}
+
+
 .content .code-lang {
     color: var(--neutral-600);
     font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", monospace;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.05em;
+}
+
+.slide .code-lang {
+    letter-spacing: 0.1em;
 }
 
 .content pre {
@@ -36,12 +50,20 @@
     display: block;
 }
 
+.slide pre code {
+    font-size: 3.5cqh;
+}
+
 /* Line number table styling */
 .content .chroma .lntable {
     display: table;
     width: 100%;
     border-spacing: 0;
     padding: 0.2rem;
+}
+
+.slide .chroma .lntable {
+    padding: 1cqh;
 }
 
 .content .chroma .lntd {
@@ -57,6 +79,10 @@
     min-width: 1em;
 }
 
+.slide .chroma .lntd:first-child {
+    min-width: 2.5cqh;
+}
+
 /* Code content column */
 .content .chroma .lntd:last-child {
     padding-left: 1rem;
@@ -64,15 +90,22 @@
     width: 100%;
 }
 
+.slide .chroma .lntd:last-child {
+    padding-left: 1cqh;
+}
+
 .content .chroma .ln,
 .content .chroma .lnt {
     color: var(--neutral-400);
-    font-size: 0.85em;
 }
 
 /* Code without line numbers */
 .content .chroma > code {
     padding: 0.2rem;
+}
+
+.slide .chroma > code {
+    padding: 1.5cqh;
 }
 
 /* Inline code */
@@ -81,5 +114,10 @@
     border-radius: 0.25rem;
     padding: 0.2em 0.4em;
     font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
-    font-size: 0.9em;
+}
+
+.slide code {
+    border-radius: 2.5cqh;
+    padding: 0.5cqh 1cqh;
+    font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
 }

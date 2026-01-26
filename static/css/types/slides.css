@@ -1,17 +1,17 @@
 .presentation .slide-kind-title h1{
-    font-size: 5rem;
+    font-size: 14cqh;
 }
 
 .presentation .slide-kind-title h2{
-    font-size: 4.5rem;
+    font-size: 12cqh;
 }
 
 .presentation .slide-kind-title h3{
-    font-size: 4.5rem;
+    font-size: 10cqh;
 }
 
 .presentation .slide-kind-title p{
-    font-size: 1.4rem;
+    font-size: 4cqh;
     color: var(--color-text-muted);
 }
 
@@ -28,7 +28,7 @@
 }
 
 .presentation .slide-kind-title-content > *:first-child h1, h2, h3{
-    font-size: 1.7rem;
+    font-size: 6.5cqh;
 }
 
 .presentation .slide-kind-title-content > *:nth-child(n+2) {

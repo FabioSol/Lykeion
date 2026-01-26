@@ -1,0 +1,131 @@
+.document h1{
+    margin-top: 10vh;
+}
+
+.document h1:first-child{
+    margin-top: 15vh;
+}
+
+.document h2{
+    margin-top: 4vh;
+}
+
+.document h3{
+    margin-top: 3vh;
+}
+
+.document h4, h5, h6{
+    margin-top: 2vh;
+}
+
+.document h5{
+    text-indent: 1vw;
+}
+
+.document h6{
+    text-indent: 2vw;
+}
+
+.document p{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    text-align: justify;
+    text-indent: 2vh;
+}
+
+.document ul, .document ol{
+    margin-left: 3vw;
+}
+
+.document hr{
+    margin: 4vh 0;
+    border: none;
+    border-top: 1px solid var(--color-text-muted);
+}
+
+.document h1, .document h2, .document h3,
+.document h4, .document h5, .document h6 {
+    scroll-margin-top: 20vh;
+    position: relative;
+}
+
+/* sizing */
+
+
+.document h1 {
+    font-size: 3rem;
+}
+
+.document h2 {
+    font-size: 2.2rem;
+}
+
+.document h3 {
+    font-size: 1.7rem;
+}
+
+.document h4 {
+    font-size: 1.2rem;
+}
+
+.document h5 {
+    font-size: 1.2rem;
+}
+
+.document h6 {
+    font-size: 1.2rem;
+}
+
+.document p,
+.document li,
+.document tr {
+    font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .document h1 {
+        margin-top: 5vh;
+    }
+
+    .document h1:first-child{
+        margin-top: 4vh;
+    }
+
+    .document h2{
+        margin-top: 4vh;
+    }
+
+    .document h3{
+        margin-top: 3vh;
+    }
+    .document h1, .document h2, .document h3,
+    .document h4, .document h5, .document h6 {
+        scroll-margin-top: 10vh;
+        position: relative;
+    }
+}
+
+@media (max-width: 768px) {
+    .document h1{
+        margin-top: 4vh;
+    }
+
+    .document h2{
+        margin-top: 3vh;
+    }
+
+    .document h3{
+        margin-top: 2vh;
+    }
+    .document h1, .document h2, .document h3,
+    .document h4, .document h5, .document h6 {
+        scroll-margin-top: 10vh;
+        position: relative;
+    }
+}
+
+@media (max-width: 480px) {
+ .heading-anchor{
+     display: none;
+ }
+}
