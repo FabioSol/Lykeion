@@ -293,6 +293,8 @@ $$
 \end{aligned}
 $$
 
+%%%
+
 Maxwell's equations example
 
 ```latex
@@ -357,22 +359,6 @@ Combine different elements:
 2. **Math with context**
    - Formula: $y = mx + b$
    - Where $m$ is slope
-
----[title-content]
-
-## Rich Combinations
-%%%
-Discussion with supporting elements:
-
-- Key concept with code:
-  ```javascript
-  const value = calculate();
-  ```
-
-- Mathematical relationship:
-  $$x^2 + y^2 = r^2$$
-%%%
-Flexible content composition
 
 ---
 
