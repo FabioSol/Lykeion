@@ -33,7 +33,7 @@
 
 .presentation .slide-kind-title-content > *:nth-child(n+2) {
     grid-row: 3;
-    align-self: start; /* Pull content to top of grid row */
+    justify-content: space-evenly;
 }
 
 .presentation .slide-split-1 {
@@ -44,6 +44,15 @@
 }
 .presentation .slide-split-3 {
     grid-column: 3;
+}
+.presentation .slide-split-4{
+     grid-column: 4;
+}
+.presentation .slide-split-5 {
+    grid-column: 5;
+}
+.presentation .slide-split-6 {
+    grid-column: 6;
 }
 
 .presentation .slide-split {

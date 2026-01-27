@@ -1,5 +1,5 @@
 .slide {
-    container-type: inline-size;  /* instead of size */
+    container-type: size;  /* instead of size */
 }
 
 .presentation h1 {

@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const presentation = document.querySelector('.presentation');
-    if (!presentation) return;
+    const slidesWrapper = document.querySelector('.slides-wrapper');
+    if (!slidesWrapper) return;
 
-    const slides = presentation.querySelectorAll('.slide-wrapper');
+    const slides = slidesWrapper.querySelectorAll('.slide');
     if (slides.length === 0) return;
 
     const indicator = document.createElement('div');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const dots = indicator.querySelectorAll('.slide-dot');
 
     function updateActiveDot() {
-        const scrollPosition = presentation.scrollLeft;
+        const scrollPosition = slidesWrapper.scrollLeft;
         const slideWidth = slides[0].offsetWidth;
         const currentSlide = Math.round(scrollPosition / slideWidth);
 
@@ -33,14 +33,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    presentation.addEventListener('scroll', updateActiveDot);
+    slidesWrapper.addEventListener('scroll', updateActiveDot);
 
     updateActiveDot();
 
     document.addEventListener('keydown', function(e) {
-        if (!presentation.matches(':hover') && document.activeElement !== presentation) return;
+        if (!slidesWrapper.matches(':hover') && document.activeElement !== slidesWrapper) return;
 
-        const currentScroll = presentation.scrollLeft;
+        const currentScroll = slidesWrapper.scrollLeft;
         const slideWidth = slides[0].offsetWidth;
         const currentSlide = Math.round(currentScroll / slideWidth);
 

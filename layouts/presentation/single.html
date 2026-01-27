@@ -19,6 +19,7 @@
 {{ $defaultKind := .Params.defaultSlideKind | default "content" }}
 
 <main class="content presentation">
+    <div class="slides-wrapper">
     {{ $content := .RawContent }}
     {{ $escapedSlides := replace $content `\---` `___ESCAPED_SLIDE___` }}
     {{ $slideDelimiter := replaceRE `\n---` "\n___SLIDE_BREAK___" $escapedSlides }}
@@ -26,7 +27,6 @@
     {{ range $index, $section := $sections }}
         {{ if eq $index 0 }}
             {{ if $showTitleSlide }}
-    <div class="slide-wrapper">
         <div class="slide slide-{{ $index }} slide-kind-title">
             <div class="slide-split slide-split-0">
                 <h1>{{ $title }}</h1>
@@ -35,7 +35,6 @@
                 {{ end }}
             </div>
         </div>
-    </div>
             {{ end }}
         {{ else }}
     {{ $trimmed := trim $section "\n\r " }}
@@ -46,22 +45,24 @@
     {{ $trimmed = replaceRE `^\[([^\]]+)\]\s*` `` $trimmed }}
     {{ end }}
     {{ $escapedContent := replace $trimmed `\%%%` `___ESCAPED_SPLIT___` }}
-    <div class="slide-wrapper">
         <div class="slide slide-{{ $index }} slide-kind-{{ $kind }}">
                 {{ $splits := split $escapedContent "%%%" }}
                 {{ range $idx, $split := $splits }}
                 <div class="slide-split slide-split-{{ $idx }}">
+                    <div class="inner-content">
                     {{ $unescaped := replace $split `___ESCAPED_SPLIT___` `%%%` }}
                     {{ $unescaped = replace $unescaped `___ESCAPED_SLIDE___` `---` }}
                     {{ $unescaped | $.Page.RenderString }}
+                    </div>
+                    <div class="balancer"></div>
+                    <div class="balancer"></div>
                 </div>
                 {{ end }}
         </div>
+    {{ end }}
+    {{ end }}
+    {{ end }}
     </div>
-    {{ end }}
-    {{ end }}
-
-    {{ end }}
 </main>
 <div class="rotate-hint">Please rotate your device</div>
 {{ end }}

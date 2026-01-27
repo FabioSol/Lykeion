@@ -17,6 +17,8 @@ A Hugo theme for reading-centered digital interfaces
 
 ## The Problem
 
+%%%
+
 Modern web interfaces prioritize engagement over comprehension.
 
 - Infinite scroll and attention-grabbing elements
