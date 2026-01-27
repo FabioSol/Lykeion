@@ -5,6 +5,11 @@
     padding: 2px 4px;
 }
 
+.slide a {
+    border-radius: 0.4cqw;
+    padding: 0.1cqw 0.5cqw;
+}
+
 .content a:hover {
     background-color: var(--color-highlight);
 }

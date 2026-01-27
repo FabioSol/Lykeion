@@ -1,46 +1,80 @@
+.content .table-wrapper {
+    overflow-x: scroll;
+    margin: 1.5rem 1rem;
+    max-width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+    isolation: isolate;
+}
+
+.content .table-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.slide .table-wrapper {
+    margin: 1.5cqw 0;
+}
+
 .content table {
-    width: 100%;
+    width: max-content;
+    min-width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    margin: 1.5cqh 0;
-    table-layout: auto;
+    margin: 0;
+    background-color: var(--neutral-50);
     border: 1px solid var(--neutral-200);
-    border-radius: 2.5cqh;
-    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.slide table {
+    border-radius: 1cqw;
+    margin: 0;
 }
 
 .content thead {
     background-color: var(--neutral-100);
 }
 
-.content thead tr:first-child th:first-child {
-    border-top-left-radius: 2.5cqh;
-}
-
-.content thead tr:first-child th:last-child {
-    border-top-right-radius: 2.5cqh;
-}
-
 .content th {
-    padding: 2cqh 5cqh;
+    padding: 0.5rem 1rem;
     text-align: left;
     font-weight: 600;
     border-bottom: 1px solid var(--neutral-200);
+    white-space: nowrap;
+}
+
+.content thead tr:first-child th:first-child {
+    border-top-left-radius: 0.5rem;
+}
+
+.content thead tr:first-child th:last-child {
+    border-top-right-radius: 0.5rem;
+}
+
+.slide th {
+    padding: 0.5cqw 1.5cqw;
+    white-space: nowrap;
+}
+
+.slide thead tr:first-child th:first-child {
+    border-top-left-radius: 1cqw;
+}
+
+.slide thead tr:first-child th:last-child {
+    border-top-right-radius: 1cqw;
 }
 
 .content td {
-    padding: 2cqh 5cqh;
+    padding: 0.5rem 1rem;
     border-bottom: 1px solid var(--neutral-200);
+    white-space: nowrap;
+}
+
+.slide td {
+    padding: 0.5cqw 1.5cqw;
 }
 
 .content tr:last-child td {
     border-bottom: none;
-}
-
-.content tbody tr:last-child td:first-child {
-    border-bottom-left-radius: 2.5cqh;
-}
-
-.content tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 2.5cqh;
 }

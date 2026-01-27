@@ -1,17 +1,17 @@
 .presentation .slide-kind-title h1{
-    font-size: 14cqh;
+    font-size: 5.833cqw;
 }
 
 .presentation .slide-kind-title h2{
-    font-size: 12cqh;
+    font-size: 5cqw;
 }
 
 .presentation .slide-kind-title h3{
-    font-size: 10cqh;
+    font-size: 4.167cqw;
 }
 
 .presentation .slide-kind-title p{
-    font-size: 4cqh;
+    font-size: 1.667cqw;
     color: var(--color-text-muted);
 }
 
@@ -28,7 +28,7 @@
 }
 
 .presentation .slide-kind-title-content > *:first-child h1, h2, h3{
-    font-size: 6.5cqh;
+    font-size: 2.708cqw;
 }
 
 .presentation .slide-kind-title-content > *:nth-child(n+2) {

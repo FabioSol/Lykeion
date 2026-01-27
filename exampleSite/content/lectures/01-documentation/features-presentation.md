@@ -129,10 +129,11 @@ just leave an empty `> ` between your pharagraphs
 
 Images maintain aspect ratio and responsive sizing
 
-`![Sample Image](../../../images/sample_image.jpeg)`
+```markdown
+![Sample Image](../../../images/sample_image.jpeg)
+```
 
 %%%
-
 ![Sample Image](../../../images/sample_image.jpeg)
 
 ---
@@ -141,20 +142,20 @@ Images maintain aspect ratio and responsive sizing
 
 Clean, minimal styling with rounded corners
 
-| Feature | Support | Notes |
-|---------|---------|-------|
-| Markdown | Full | GFM |
-| Syntax | Full | 100+ langs |
-| Math | Full | LaTeX |
+| Feature  | Support | Notes      |
+|----------|---------|------------|
+| Markdown | Full    | GFM        |
+| Syntax   | Full    | 100+ langs |
+| Math     | Full    | LaTeX      |
 
 %%%
 
 ```markdown
-| Feature | Support | Notes |
-|---------|---------|-------|
-| Markdown | Full | GFM |
-| Syntax | Full | 100+ langs |
-| Math | Full | LaTeX |
+| Feature  | Support | Notes      |
+|----------|---------|------------|
+| Markdown | Full    | GFM        |
+| Syntax   | Full    | 100+ langs |
+| Math     | Full    | LaTeX      |
 ```
 ---
 
@@ -162,19 +163,33 @@ Clean, minimal styling with rounded corners
 
 | Left | Center | Right |
 |:-----|:------:|------:|
-| Text | Text | Text |
-| More | More | More |
-| Data | Data | Data |
+| Text |  Text  |  Text |
+| More |  More  |  More |
+| Data |  Data  |  Data |
 
 Control alignment per column
 
 ```markdown
 | Left | Center | Right |
 |:-----|:------:|------:|
-| Text | Text | Text |
-| More | More | More |
-| Data | Data | Data |
+| Text |  Text  |  Text |
+| More |  More  |  More |
+| Data |  Data  |  Data |
 ```
+
+---
+
+## Intentionally overflowed table
+
+%%%
+
+| Language   | Typing   | Paradigm          | Popular Frameworks        |
+|------------|----------|-------------------|---------------------------|
+| Python     | Dynamic  | Multi-paradigm    | Django, Flask, FastAPI    |
+| JavaScript | Dynamic  | Multi-paradigm    | React, Vue, Express       |
+| Go         | Static   | Procedural/OOP    | Gin, Echo, Fiber          |
+| Rust       | Static   | Multi-paradigm    | Actix, Rocket, Axum       |
+
 
 ---
 

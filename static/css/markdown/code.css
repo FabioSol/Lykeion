@@ -8,8 +8,8 @@
 }
 
 .slide .code-block {
-    border-radius: 2.5cqh;
-    margin:  1cqh 0;
+    border-radius: 1cqw;
+    margin: 1.5cqw 0;
 }
 
 .content .code-header {
@@ -20,8 +20,8 @@
 }
 
 .slide .code-header {
-    padding: 2cqh 5cqh;
-    font-size: 3.6cqh;
+    padding: 0.5cqw 1.5cqw;
+    font-size: 1.4cqw;
 }
 
 
@@ -30,10 +30,11 @@
     font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", monospace;
     font-weight: 500;
     letter-spacing: 0.05em;
+    text-transform: capitalize;
 }
 
 .slide .code-lang {
-    letter-spacing: 0.1em;
+    letter-spacing: 0.1cqw;
 }
 
 .content pre {
@@ -41,6 +42,13 @@
     padding: 0;
     margin: 0;
     overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.content pre::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .content pre code {
@@ -48,22 +56,22 @@
     padding: 0;
     font-size: 0.9em;
     display: block;
+    white-space: pre;
 }
 
 .slide pre code {
-    font-size: 3.5cqh;
+    font-size: 1.35cqw;
 }
 
 /* Line number table styling */
 .content .chroma .lntable {
     display: table;
-    width: 100%;
     border-spacing: 0;
     padding: 0.2rem;
 }
 
 .slide .chroma .lntable {
-    padding: 1cqh;
+    padding: 0.4cqw;
 }
 
 .content .chroma .lntd {
@@ -80,18 +88,25 @@
 }
 
 .slide .chroma .lntd:first-child {
-    min-width: 2.5cqh;
+    min-width: 1cqw;
 }
 
 /* Code content column */
 .content .chroma .lntd:last-child {
     padding-left: 1rem;
     border-left: 1px solid var(--neutral-200);
-    width: 100%;
+    overflow-x: auto;
+    max-width: 0;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.content .chroma .lntd:last-child::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .slide .chroma .lntd:last-child {
-    padding-left: 1cqh;
+    padding-left: 0.5cqw;
 }
 
 .content .chroma .ln,
@@ -105,19 +120,19 @@
 }
 
 .slide .chroma > code {
-    padding: 1.5cqh;
+    padding: 0.4cqw;
 }
 
 /* Inline code */
 .content code {
-    background-color: var(--neutral-100);
+    background-color: var(--neutral-200);
     border-radius: 0.25rem;
     padding: 0.2em 0.4em;
     font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
 }
 
 .slide code {
-    border-radius: 2.5cqh;
-    padding: 0.5cqh 1cqh;
+    border-radius: 0.4cqw;
+    padding: 0.1cqw 0.5cqw;
     font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
 }

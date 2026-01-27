@@ -11,6 +11,14 @@
     top: 0.125rem;
 }
 
+.slide ul li input[type="checkbox"]:disabled {
+    width: 1.5cqw;
+    height: 1.5cqw;
+    border-radius: 0.25cqw;
+    margin-right: 0.5cqw;
+    top: 0.125cqw;
+}
+
 .content ul li input[type="checkbox"]:disabled:checked {
     background-color: var(--neutral-100);
     border-color: var(--neutral-300);
@@ -25,4 +33,11 @@
     border: solid var(--color-text-muted);
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
+}
+
+.slide ul li input[type="checkbox"]:disabled:checked::after {
+    left: 0.4cqw;
+    width: 0.3cqw;
+    height: 0.8cqw;
+    border-width: 0 0.3cqw 0.3cqw 0;
 }

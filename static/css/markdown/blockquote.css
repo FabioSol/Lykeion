@@ -7,6 +7,12 @@
     font-style: italic;
 }
 
+.slide blockquote {
+    padding: 1cqw 1.5cqw;
+    margin: 1.5cqw 0;
+    border-radius: 1cqw;
+}
+
 .content blockquote p {
     color: var(--color-text-muted);
 }
