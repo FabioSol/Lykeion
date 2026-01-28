@@ -27,72 +27,33 @@ Add to your `config.toml`:
 ```toml
 [module]
   [[module.imports]]
-    path = "github.com/fabiosolorzano/Lykeion"
+    path = "github.com/FabioSol/Lykeion"
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos = true
+    lineNumbersInTable = true
 ```
 
 Then run:
 
 ```bash
+hugo mod init github.com/FabioSol/msc-thesis-notes
 hugo mod get -u
 ```
 
-### As a Git Submodule
+create a `content` directory.
 
-```bash
-cd your-hugo-site
-git submodule add https://github.com/fabiosolorzano/Lykeion.git themes/lykeion
+follow the structure:
+
 ```
-
-Update your `config.toml`:
-
-```toml
-theme = "lykeion"
-```
-
-## Configuration
-
-### Required Hugo Configuration
-
-Add this to your `config.toml` or `hugo.toml`:
-
-```toml
-baseURL = "/"
-title = "Lykeion"
-languageCode = "en-us"
-theme = "lykeion"
-
-[author]
-  name = "Your Name"
-  homepage = "https://yoursite.com"
-
-[markup]
-  [markup.highlight]
-    noClasses = false        # CRITICAL: Required for syntax highlighting
-    lineNos = true
-    lineNumbersInTable = true
-
-  [markup.goldmark]
-    [markup.goldmark.extensions]
-      [markup.goldmark.extensions.passthrough]
-        enable = true        # CRITICAL: Required for math rendering
-        [markup.goldmark.extensions.passthrough.delimiters]
-          block = [['\[', '\]'], ['$$', '$$']]
-          inline = [['\(', '\)'], ['$', '$']]
-
-    [markup.goldmark.parser]
-      autoHeadingID = true
-      autoHeadingIDType = "github"
-
-[params]
-  description = "Your site description"
-  author = "Your Name"
-  math = true                # Enable MathJax globally
-  defaultSlideKind = "content"
-
-[[menu.main]]
-  name = "Lectures"
-  url = "/lectures/"
-  weight = 1
+content/
+├── _index.md # front page
+└── lectures/
+    ├── _index.md # type lecture
+    └── {your lectures}/
+        ├── _index.md # type lecture
+        └── file.md # type document or presentation
 ```
 
 ### Critical Settings Explained
