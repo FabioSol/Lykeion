@@ -22,7 +22,7 @@ find "$CONTENT_DIR" -name "*.pdf" -type f | while read -r pdf_path; do
 
     # Get relative path from content dir for the PDF
     rel_path="${pdf_path#$CONTENT_DIR/}"
-    pdf_url="/${rel_path}"
+    pdf_url="$rel_path"
 
     # Create markdown file with frontmatter
     cat > "$md_path" << EOF
@@ -33,8 +33,7 @@ embedded_type: pdf
 slug: "$filename"
 ---
 
-<iframe src="$pdf_url" frameborder="0" style="border: 1px solid #ccc; border-radius: 4px;"></iframe>
-
+{{< pdf "$pdf_url" >}}
 EOF
 
     echo "  Generated: $md_path"
@@ -51,10 +50,7 @@ find "$CONTENT_DIR" -name "*.ipynb" -type f | while read -r notebook_path; do
 
     # Get relative path from content dir
     rel_path="${notebook_path#$CONTENT_DIR/}"
-
-    # For iframe, we'll use nbviewer with the raw GitHub URL
-    # Or you can use a local HTML conversion - let's use nbviewer for simplicity
-    notebook_url="/$rel_path"
+    notebook_url="$rel_path"
 
     # Create markdown file with frontmatter
     cat > "$md_path" << EOF

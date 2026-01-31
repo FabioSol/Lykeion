@@ -1,7 +1,7 @@
 {{/* Renders a Jupyter notebook using notebookjs client-side rendering */}}
-{{/* Usage: {{< notebook-iframe "/path/to/notebook.ipynb" >}} */}}
+{{/* Usage: {{< notebook "/path/to/notebook.ipynb" >}} */}}
 
-{{ $notebookUrl := .Get 0 }}
+{{ $notebookUrl := .Get 0 | absURL }}
 {{ $uniqueId := printf "notebook_%d" .Ordinal }}
 
 <div id="{{ $uniqueId }}" class="notebook-container" data-notebook-url="{{ $notebookUrl }}">
