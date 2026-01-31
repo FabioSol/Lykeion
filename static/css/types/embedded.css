@@ -6,7 +6,8 @@
     max-height: 80vh;
     border: 1px solid var(--neutral-200, #ccc);
     border-radius: 4px;
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Notebook container for client-side rendering */
