@@ -158,17 +158,34 @@
             });
 
             // Trigger MathJax to render LaTeX if available
-            // Use setTimeout to ensure DOM is settled and MathJax is ready
-            setTimeout(function() {
-              if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
-                // Wait for MathJax to be fully initialized
-                MathJax.startup.promise.then(function() {
-                  return MathJax.typesetPromise([container]);
-                }).catch(function(err) {
-                  console.warn('MathJax typeset error:', err);
-                });
+            // Wait for next animation frame to ensure DOM is fully rendered
+            requestAnimationFrame(function() {
+              if (typeof MathJax !== 'undefined') {
+                // Try different MathJax API versions
+                if (MathJax.typesetPromise) {
+                  // MathJax v3
+                  var typesetMath = function() {
+                    MathJax.typesetPromise([container]).catch(function(err) {
+                      console.warn('MathJax typeset error:', err);
+                    });
+                  };
+
+                  // If startup exists, wait for it, otherwise just typeset
+                  if (MathJax.startup && MathJax.startup.promise) {
+                    MathJax.startup.promise.then(typesetMath).catch(function(err) {
+                      console.warn('MathJax startup error:', err);
+                      // Try anyway
+                      setTimeout(typesetMath, 200);
+                    });
+                  } else {
+                    typesetMath();
+                  }
+                } else if (MathJax.Hub && MathJax.Hub.Queue) {
+                  // MathJax v2 fallback
+                  MathJax.Hub.Queue(['Typeset', MathJax.Hub, container]);
+                }
               }
-            }, 100);
+            });
           } else {
             throw new Error('Invalid notebook format');
           }
