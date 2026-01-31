@@ -49,7 +49,9 @@
 
     <!-- Markdown and Math support for notebooks -->
     <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
-    {{ partial "math.html" . }}
+    {{ if not (.Param "math") }}
+        {{ partial "math.html" . }}
+    {{ end }}
 
     <!-- Theme Manager -->
     <script type="module" src="{{ "js/theme.js" | relURL }}" defer></script>
