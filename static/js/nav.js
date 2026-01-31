@@ -3,11 +3,37 @@ class SpatialNavigator {
         this.nullRoutes = { up: null, down: null, left: null, right: null };
         this.routes = { up: null, down: null, left: null, right: null };
         this.overscrollTriggered = { up: false, down: false, left: false, right: false };
+        this.pendingConfig = null;
+        this.initialized = false;
+        this.init();
+    }
+
+    init() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.setup());
+        } else {
+            this.setup();
+        }
+    }
+
+    setup() {
+        this.initialized = true;
         this.initListeners();
+
+        // Apply pending config if setMap was called before DOM ready
+        if (this.pendingConfig) {
+            this.routes = { ...this.nullRoutes, ...this.pendingConfig };
+            this.pendingConfig = null;
+        }
     }
 
     setMap(config) {
-        this.routes = { ...this.nullRoutes, ...config };
+        if (this.initialized) {
+            this.routes = { ...this.nullRoutes, ...config };
+        } else {
+            // Queue config until DOM is ready
+            this.pendingConfig = config;
+        }
     }
 
     initListeners() {

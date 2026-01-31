@@ -1,27 +1,53 @@
-function fitTitle(el, maxRem = 4, minRem = 1.5) {
-    const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize); // px
-    const containerWidth = el.parentElement.clientWidth;
-
-    let fontSize = maxRem * rootFontSize;
-    el.style.whiteSpace = "nowrap"; // start with nowrap
-    el.style.fontSize = fontSize + "px";
-
-    // Reduce font size until it fits OR reaches minimum
-    while (el.scrollWidth > containerWidth && fontSize > minRem * rootFontSize) {
-        fontSize -= 1;
-        el.style.fontSize = fontSize + "px";
+class TitleFitter {
+    constructor(selector, maxRem = 4, minRem = 1.5) {
+        this.selector = selector;
+        this.maxRem = maxRem;
+        this.minRem = minRem;
+        this.element = null;
+        this.init();
     }
 
-    // Convert back to rem
-    el.style.fontSize = fontSize / rootFontSize + "rem";
+    init() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.setup());
+        } else {
+            this.setup();
+        }
+    }
 
-    // If we hit minimum font size, allow wrapping
-    if (fontSize <= minRem * rootFontSize) {
-        el.style.whiteSpace = "normal";
+    setup() {
+        this.element = document.querySelector(this.selector);
+        if (this.element) {
+            this.fit();
+            window.addEventListener('resize', () => this.fit());
+        }
+    }
+
+    fit() {
+        if (!this.element) return;
+
+        const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+        const containerWidth = this.element.parentElement.clientWidth;
+
+        let fontSize = this.maxRem * rootFontSize;
+        this.element.style.whiteSpace = 'nowrap';
+        this.element.style.fontSize = fontSize + 'px';
+
+        // Reduce font size until it fits OR reaches minimum
+        while (this.element.scrollWidth > containerWidth && fontSize > this.minRem * rootFontSize) {
+            fontSize -= 1;
+            this.element.style.fontSize = fontSize + 'px';
+        }
+
+        // Convert back to rem
+        this.element.style.fontSize = fontSize / rootFontSize + 'rem';
+
+        // If we hit minimum font size, allow wrapping
+        if (fontSize <= this.minRem * rootFontSize) {
+            this.element.style.whiteSpace = 'normal';
+        }
     }
 }
 
-const h1 = document.querySelector(".root header h1");
-fitTitle(h1);
-
-window.addEventListener("resize", () => fitTitle(h1));
+// Initialize
+new TitleFitter('.root header h1');

@@ -133,8 +133,8 @@
 }
 
 .slide code {
-    border-radius: 0.4cqw;
+    border-radius: 0.8cqw;
     padding: 0.1cqw 0.5cqw;
     font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
-    font-size: 1.35cqw;
+    font-size: 80%;
 }

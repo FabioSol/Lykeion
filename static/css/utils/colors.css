@@ -1,30 +1,36 @@
 :root {
-    --neutral-50: oklch(98.4% 0.003 247.858);
-    --neutral-100: oklch(96.8% 0.007 247.896);
-    --neutral-200: oklch(92.9% 0.013 255.508);
-    --neutral-300: oklch(86.9% 0.022 252.894);
-    --neutral-400: oklch(70.4% 0.04 256.788);
-    --neutral-500: oklch(55.4% 0.046 257.417);
-    --neutral-600: oklch(44.6% 0.043 257.281);
-    --neutral-700: oklch(37.2% 0.044 257.287);
-    --neutral-800: oklch(27.9% 0.041 260.031);
-    --neutral-900: oklch(20.8% 0.042 265.755);
-    --neutral-950: oklch(12.9% 0.042 264.695);
+    /* Neutral palette - using light-dark() for automatic theme switching */
+    --neutral-50:  light-dark(#fafafa, #18181b);
+    --neutral-100: light-dark(#f4f4f5, #27272a);
+    --neutral-200: light-dark(#e4e4e7, #3f3f46);
+    --neutral-300: light-dark(#d4d4d8, #52525b);
+    --neutral-400: light-dark(#a1a1aa, #71717a);
+    --neutral-500: light-dark(#71717a, #a1a1aa);
+    --neutral-600: light-dark(#52525b, #d4d4d8);
+    --neutral-700: light-dark(#3f3f46, #e4e4e7);
+    --neutral-800: light-dark(#27272a, #f4f4f5);
+    --neutral-900: light-dark(#18181b, #fafafa);
+    --neutral-950: light-dark(#09090b, #ffffff);
 
+    /* Semantic colors */
     --color-bg: var(--neutral-50);
     --color-text: var(--neutral-900);
-    --color-bg-tooltip: var(--neutral-900);
-    --color-text-tooltip: var(--neutral-50);
-    --color-text-muted: color-mix(in oklch, var(--neutral-900) 50%, transparent);
-    --color-highlight: rgba(255, 183, 0, 0.41);
+    --color-bg-tooltip: light-dark(var(--neutral-900), var(--neutral-50));
+    --color-text-tooltip: light-dark(var(--neutral-50), var(--neutral-900));
+    --color-text-muted: light-dark(
+        color-mix(in oklch, #18181b 50%, transparent),
+        color-mix(in oklch, #fafafa 60%, transparent)
+    );
+    --color-highlight: light-dark(rgba(255, 183, 0, 0.41), oklch(75% 0.15 80));
 
-    --syntax-keyword:  oklch(65% 0.18 300); /* Purple – keywords (if, class, return) */
-    --syntax-function: oklch(68% 0.16 250); /* Blue – functions/methods */
-    --syntax-string:   oklch(72% 0.14 150); /* Green – strings */
-    --syntax-number:   oklch(70% 0.15 80);  /* Orange – numbers */
-    --syntax-comment:  oklch(60% 0.03 260); /* Muted gray-blue – comments */
-    --syntax-operator: oklch(75% 0.02 260); /* Light neutral – operators */
-    --syntax-type:     oklch(70% 0.17 30);  /* Yellow/orange – types & classes */
+    /* Syntax highlighting - brighter colors for dark mode */
+    --syntax-keyword:  light-dark(oklch(65% 0.18 300), oklch(75% 0.18 300)); /* Purple – keywords */
+    --syntax-function: light-dark(oklch(68% 0.16 250), oklch(78% 0.16 250)); /* Blue – functions/methods */
+    --syntax-string:   light-dark(oklch(72% 0.14 150), oklch(82% 0.14 150)); /* Green – strings */
+    --syntax-number:   light-dark(oklch(70% 0.15 80), oklch(80% 0.15 80));   /* Orange – numbers */
+    --syntax-comment:  light-dark(oklch(60% 0.03 260), oklch(65% 0.03 260)); /* Muted gray-blue – comments */
+    --syntax-operator: light-dark(oklch(75% 0.02 260), oklch(70% 0.02 260)); /* Light neutral – operators */
+    --syntax-type:     light-dark(oklch(70% 0.17 30), oklch(80% 0.17 30));   /* Yellow/orange – types & classes */
 
     --edge-intensity: 1;
 }

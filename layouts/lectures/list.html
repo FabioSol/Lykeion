@@ -10,9 +10,6 @@
 
     AppNav.setMap({
         left:  {{ if .Parent.IsHome }}{{ .Site.Home.RelPermalink }}{{ else }}{{ .Parent.RelPermalink }}{{ end }},
-        right: {{ if $firstPage }} "{{ $firstPage.RelPermalink }}" {{ else }}null{{ end }},
-        up: {{ if $prev }}"{{ $prev.RelPermalink }}"{{ else }}null{{ end }},
-        down: {{ if $next }}"{{ $next.RelPermalink }}"{{ else }}null{{ end }},
     });
 </script>
 {{ end}}

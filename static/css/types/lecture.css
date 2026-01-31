@@ -95,11 +95,19 @@
 }
 
 .lectures .lectures-list article.presentation-item h2::before{
-    background-image: url('../../icons/presentation.svg');
+    background-color: currentColor;
+    mask-image: url('../../icons/presentation.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
 }
 
 .lectures .lectures-list article.document-item h2::before{
-    background-image: url('../../icons/document.svg');
+    background-color: currentColor;
+    mask-image: url('../../icons/document.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
 }
 
 /* Portrait mode: stack header on top, list below */

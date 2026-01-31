@@ -24,7 +24,4 @@ languageCode = "en-us"
   author = "Fabio Solorzano"
   math = true
   defaultSlideKind = "content"
-[[menu.main]]
-  name = "Lectures"
-  url = "/lectures/"
-  weight = 1
+  mainPage = "lectures"

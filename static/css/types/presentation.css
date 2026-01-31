@@ -124,11 +124,21 @@ body {
     display: none;
 }
 
+/* Explicitly hide rotate elements in landscape */
+@media (orientation: landscape) {
+    .presentation::before,
+    .presentation::after,
+    .rotate-hint {
+        display: none !important;
+    }
+}
+
 @media (orientation: portrait) {
     .presentation::before {
         content: "";
         position: fixed;
         inset: 0;
+        background-color: var(--color-bg);
         z-index: 1000;
     }
 

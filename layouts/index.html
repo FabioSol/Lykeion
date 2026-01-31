@@ -5,7 +5,7 @@
     import { AppNav } from {{ "js/nav.js" | relURL }};
 
     AppNav.setMap({
-        right: {{ "lectures/" | relURL }},
+        right: {{ .Site.Params.mainPage | default "lectures/" | relURL }}
     });
 </script>
 {{ end}}
