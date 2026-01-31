@@ -19,17 +19,47 @@ class SpatialNavigator {
     setup() {
         this.initialized = true;
         this.initListeners();
+        this.createHints();
 
         // Apply pending config if setMap was called before DOM ready
         if (this.pendingConfig) {
             this.routes = { ...this.nullRoutes, ...this.pendingConfig };
+            this.updateHints();
             this.pendingConfig = null;
         }
+    }
+
+    createHints() {
+        const container = document.createElement('div');
+        container.className = 'nav-hints';
+        container.innerHTML = `
+            <div class="nav-hint nav-hint-up" data-direction="up">↑</div>
+            <div class="nav-hint nav-hint-down" data-direction="down">↓</div>
+            <div class="nav-hint nav-hint-left" data-direction="left">←</div>
+            <div class="nav-hint nav-hint-right" data-direction="right">→</div>
+        `;
+        document.body.appendChild(container);
+        this.hintsContainer = container;
+    }
+
+    updateHints() {
+        if (!this.hintsContainer) return;
+
+        const hints = this.hintsContainer.querySelectorAll('.nav-hint');
+        hints.forEach(hint => {
+            const direction = hint.getAttribute('data-direction');
+            if (this.routes[direction]) {
+                hint.classList.add('active');
+            } else {
+                hint.classList.remove('active');
+            }
+        });
     }
 
     setMap(config) {
         if (this.initialized) {
             this.routes = { ...this.nullRoutes, ...config };
+            this.updateHints();
         } else {
             // Queue config until DOM is ready
             this.pendingConfig = config;
