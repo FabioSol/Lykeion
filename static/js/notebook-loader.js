@@ -158,11 +158,17 @@
             });
 
             // Trigger MathJax to render LaTeX if available
-            if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
-              MathJax.typesetPromise([container]).catch(function(err) {
-                console.warn('MathJax typeset error:', err);
-              });
-            }
+            // Use setTimeout to ensure DOM is settled and MathJax is ready
+            setTimeout(function() {
+              if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+                // Wait for MathJax to be fully initialized
+                MathJax.startup.promise.then(function() {
+                  return MathJax.typesetPromise([container]);
+                }).catch(function(err) {
+                  console.warn('MathJax typeset error:', err);
+                });
+              }
+            }, 100);
           } else {
             throw new Error('Invalid notebook format');
           }
