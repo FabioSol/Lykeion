@@ -29,7 +29,7 @@
     {{ if .Pages }}
     <section class="lectures-list">
         {{ range .Pages.ByWeight }}
-        <article class="lecture-item {{ .Type }}-item">
+        <article class="lecture-item {{ .Type }}-item{{ if eq .Type "embedded" }} embedded-{{ .Params.embedded_type }}{{ end }}">
             <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
             {{ if .Description }}
             <p>{{ .Description }}</p>

@@ -82,7 +82,7 @@
     color: var(--color-text-muted);
 }
 
-.lectures .lectures-list article.presentation-item h2::before ,.lectures .lectures-list article.document-item h2::before{
+.lectures .lectures-list article.presentation-item h2::before ,.lectures .lectures-list article.document-item h2::before, .lectures .lectures-list article.embedded-item h2::before{
     content: "";
     display: inline-block;
     width: 1.1em;
@@ -105,6 +105,30 @@
 .lectures .lectures-list article.document-item h2::before{
     background-color: currentColor;
     mask-image: url('../../icons/document.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.lectures .lectures-list article.embedded-item h2::before{
+    background-color: currentColor;
+    mask-image: url('../../icons/document.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.lectures .lectures-list article.embedded-pdf h2::before{
+    background-color: currentColor;
+    mask-image: url('../../icons/pdf.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.lectures .lectures-list article.embedded-notebook h2::before{
+    background-color: currentColor;
+    mask-image: url('../../icons/jupyter.svg');
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;

@@ -1,0 +1,25 @@
+{{ define "head" }}
+<link rel="stylesheet" href="{{ "css/types/embedded.css" | relURL }}">
+{{ partialCached "content-styles.html" . }}
+<script type="module">
+    import { AppNav } from {{ "js/nav.js" | relURL }};
+
+    AppNav.setMap({
+        left: {{ .Parent.RelPermalink }},
+    });
+</script>
+{{ end }}
+
+{{ define "main" }}
+<main class="content embedded">
+    {{ if ne .Params.embedded_type "notebook" }}
+    <header>
+        <h1>{{ .Title }}</h1>
+        {{ if .Description }}
+        <p class="description">{{ .Description }}</p>
+        {{ end }}
+    </header>
+    {{ end }}
+    {{ .Content }}
+</main>
+{{ end }}

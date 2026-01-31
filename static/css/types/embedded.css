@@ -1,0 +1,228 @@
+/* Embedded content (PDFs, Notebooks) */
+.embedded iframe {
+    width: 100%;
+    max-width: 100%;
+    height: 80vh;
+    max-height: 80vh;
+    border: 1px solid var(--neutral-200, #ccc);
+    border-radius: 4px;
+    display: block;
+}
+
+/* Notebook container for client-side rendering */
+.notebook-container {
+    width: 100%;
+    max-width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 2vh 5vw;
+    padding-bottom: 10vh;
+}
+
+/* Loading state */
+.notebook-loading {
+    padding: 2rem;
+    text-align: center;
+    color: #666;
+}
+
+/* Error state */
+.notebook-error {
+    padding: 1rem;
+    background: #ffe0e0;
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    color: #cc0000;
+    margin-top: 0.5rem;
+}
+
+/* Fallback for no JavaScript */
+.notebook-fallback {
+    padding: 1rem;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Container for embedded content */
+.embedded {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Download/action buttons */
+.embedded p,
+.embedded div {
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+/* Notebook cell styling - similar to document typography */
+.nb-cell {
+    margin: 1.5vh 0;
+}
+
+.nb-markdown-cell h1 {
+    margin-top: 3vh;
+    font-size: 2.5rem;
+}
+
+.nb-markdown-cell h1:first-child {
+    margin-top: 2vh;
+}
+
+.nb-markdown-cell h2 {
+    margin-top: 2.5vh;
+    font-size: 2rem;
+}
+
+.nb-markdown-cell h3 {
+    margin-top: 2vh;
+    font-size: 1.5rem;
+}
+
+.nb-markdown-cell h4,
+.nb-markdown-cell h5,
+.nb-markdown-cell h6 {
+    margin-top: 1.5vh;
+    font-size: 1.1rem;
+}
+
+.nb-markdown-cell h5 {
+    text-indent: 1vw;
+}
+
+.nb-markdown-cell h6 {
+    text-indent: 2vw;
+}
+
+.nb-markdown-cell p {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    text-align: justify;
+    text-indent: 2vh;
+    font-size: 1rem;
+}
+
+.nb-markdown-cell ul,
+.nb-markdown-cell ol {
+    margin-left: 3vw;
+    font-size: 1rem;
+}
+
+.nb-markdown-cell hr {
+    margin: 4vh 0;
+    border: none;
+    border-top: 1px solid var(--color-text-muted);
+}
+
+/* Code cells */
+.nb-code-cell {
+    margin: 3vh 0;
+}
+
+.nb-code-cell pre {
+    background: var(--color-bg);
+    padding: 0.75rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.nb-code-cell code {
+    background: transparent;
+    padding: 0;
+}
+
+.nb-output pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+
+.nb-output img {
+    max-width: 100%;
+    height: auto;
+    margin: 1vh 0;
+    border-radius: 4px;
+}
+
+/* Responsive typography */
+@media (max-width: 1024px) {
+    .nb-markdown-cell h1 {
+        margin-top: 5vh;
+    }
+
+    .nb-markdown-cell h1:first-child {
+        margin-top: 4vh;
+    }
+
+    .nb-markdown-cell h2 {
+        margin-top: 4vh;
+    }
+
+    .nb-markdown-cell h3 {
+        margin-top: 3vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .notebook-container {
+        padding: 3vh 8vw;
+    }
+
+    .nb-markdown-cell h1 {
+        margin-top: 4vh;
+        font-size: 2.5rem;
+    }
+
+    .nb-markdown-cell h2 {
+        margin-top: 3vh;
+        font-size: 1.8rem;
+    }
+
+    .nb-markdown-cell h3 {
+        margin-top: 2vh;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .notebook-container {
+        padding: 2vh 5vw;
+    }
+
+    .nb-markdown-cell h1 {
+        font-size: 2rem;
+    }
+
+    .nb-markdown-cell h2 {
+        font-size: 1.5rem;
+    }
+
+    .nb-markdown-cell h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .embedded iframe,
+    .notebook-container {
+        height: 70vh;
+        max-height: 70vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .embedded iframe,
+    .notebook-container {
+        height: 60vh;
+        max-height: 60vh;
+    }
+}

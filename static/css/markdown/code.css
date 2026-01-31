@@ -138,3 +138,79 @@
     font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
     font-size: 80%;
 }
+
+.nb-code-cell {
+    position: relative;
+    margin: 2rem 0;
+
+    pre {
+        background: var(--neutral-100);
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin: 0;
+        font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .nb-output {
+        border-left: 4px solid var(--neutral-200);
+        background-color: var(--neutral-100);
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0.5rem;
+        font-style: italic;
+
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.25rem;
+            margin: 0.5rem 0;
+        }
+    }
+
+    /* Error state - red border */
+    &.has-error .nb-output {
+        border-left-color: var(--color-highlight);
+    }
+
+    /* Error output specific styling */
+    .nb-error-output {
+        background: var(--neutral-100);
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+            font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+            font-size: 0.85rem;
+        }
+    }
+
+    /* Execution number badge */
+    &[data-execution-count]::before {
+        content: "[" attr(data-execution-count) "]:";
+        position: absolute;
+        left: -2.5rem;
+        top: 0.7rem;
+        color: var(--neutral-500);
+        font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+        font-size: 0.85rem;
+        font-weight: 200;
+        user-select: none;
+    }
+}
+
+/* Mobile: hide execution numbers on small screens */
+@media (max-width: 768px) {
+    .nb-code-cell[data-execution-count]::before {
+        display: none;
+    }
+}

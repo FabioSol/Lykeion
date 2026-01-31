@@ -1,0 +1,15 @@
+{{/* Renders a Jupyter notebook using notebookjs client-side rendering */}}
+{{/* Usage: {{< notebook-iframe "/path/to/notebook.ipynb" >}} */}}
+
+{{ $notebookUrl := .Get 0 }}
+{{ $uniqueId := printf "notebook_%d" .Ordinal }}
+
+<div id="{{ $uniqueId }}" class="notebook-container" data-notebook-url="{{ $notebookUrl }}">
+  <noscript>
+    <div class="notebook-fallback">
+      <p>JavaScript is required to view this notebook.</p>
+      <a href="{{ $notebookUrl }}" download class="download-button">Download Notebook</a>
+    </div>
+  </noscript>
+</div>
+<div id="{{ $uniqueId }}_error" class="notebook-error" style="display: none;"></div>
