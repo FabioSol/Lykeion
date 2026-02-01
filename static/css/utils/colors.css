@@ -1,16 +1,17 @@
 :root {
     /* Neutral palette - using light-dark() for automatic theme switching */
-    --neutral-50:  light-dark(#fafafa, #18181b);
-    --neutral-100: light-dark(#f4f4f5, #27272a);
-    --neutral-200: light-dark(#e4e4e7, #3f3f46);
-    --neutral-300: light-dark(#d4d4d8, #52525b);
-    --neutral-400: light-dark(#a1a1aa, #71717a);
-    --neutral-500: light-dark(#71717a, #a1a1aa);
-    --neutral-600: light-dark(#52525b, #d4d4d8);
-    --neutral-700: light-dark(#3f3f46, #e4e4e7);
-    --neutral-800: light-dark(#27272a, #f4f4f5);
-    --neutral-900: light-dark(#18181b, #fafafa);
-    --neutral-950: light-dark(#09090b, #ffffff);
+    --neutral-50:  light-dark(#EEEBE9, #05050E);
+    --neutral-100: light-dark(#E0DDDC, #23222A);
+    --neutral-200: light-dark(#D1CFCE, #403F45);
+    --neutral-300: light-dark(#C3C1C1, #4F4E53);
+    --neutral-400: light-dark(#B4B2B3, #7A787C);
+    --neutral-500: light-dark(#979598, #979598);
+    --neutral-600: light-dark(#7A787C, #B4B2B3);
+    --neutral-700: light-dark(#4F4E53, #C3C1C1);
+    --neutral-800: light-dark(#403F45, #D1CFCE);
+    --neutral-900: light-dark(#23222A, #E0DDDC);
+    --neutral-950: light-dark(#05050E, #EEEBE9);
+
 
     /* Semantic colors */
     --color-bg: var(--neutral-50);
