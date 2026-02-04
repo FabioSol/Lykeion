@@ -5,6 +5,7 @@ A mindful learning platform theme for Hugo that prioritizes content as the sole 
 ## Features
 
 - **Two Content Modes**: Presentations (horizontal slides) and Documents (vertical reading)
+- **PDF & Jupyter Notebook Support**: Embed and display PDFs and notebooks with automatic page generation
 - **Custom Markdown Syntax**: Slide delimiters, column splits, and slide types
 - **Mathematical Expressions**: Full LaTeX support via MathJax
 - **Enhanced Code Blocks**: Syntax highlighting with line numbers and language indicators
@@ -115,6 +116,108 @@ weight: 2
 math: false
 ---
 ```
+
+### 3. PDFs and Jupyter Notebooks
+
+Lykeion provides first-class support for embedding PDF documents and Jupyter notebooks directly into your site.
+
+#### Automatic Page Generation
+
+The theme includes a content generation script that automatically creates Hugo pages for PDFs and Jupyter notebooks found in your content directory.
+
+**Quick Setup:**
+
+1. **Install the content generator:**
+   ```bash
+   hugo mod get -u github.com/FabioSol/Lykeion
+   bash -c "$(curl -fsSL https://raw.githubusercontent.com/FabioSol/Lykeion/main/scripts/install-hooks.sh)"
+   ```
+
+2. **Add PDFs or Jupyter notebooks to your content:**
+   ```bash
+   content/
+   └── lectures/
+       └── 01-introduction/
+           ├── slides.pdf
+           └── analysis.ipynb
+   ```
+
+3. **Run the generator:**
+   ```bash
+   ./generate-content.sh
+   ```
+
+This will automatically create `.gen.md` files (e.g., `slides.gen.md`, `analysis.gen.md`) with the proper frontmatter and shortcodes.
+
+**Integration Options:**
+
+Add to your `Makefile`:
+```makefile
+generate:
+	./generate-content.sh
+
+serve: generate
+	hugo serve
+
+build: generate
+	hugo build
+```
+
+Or add to `package.json`:
+```json
+{
+  "scripts": {
+    "generate": "./generate-content.sh",
+    "dev": "npm run generate && hugo serve",
+    "build": "npm run generate && hugo build"
+  }
+}
+```
+
+Or add to GitHub Actions (before Hugo build):
+```yaml
+- name: Generate content for PDFs and Notebooks
+  run: |
+    chmod +x ./generate-content.sh
+    ./generate-content.sh
+```
+
+**Important:** Add `*.gen.md` to your `.gitignore` since these files are auto-generated.
+
+#### Manual Usage
+
+You can also manually embed PDFs and notebooks using shortcodes:
+
+**PDF Shortcode:**
+```markdown
+---
+title: "Course Slides"
+type: embedded
+embedded_type: pdf
+---
+
+{{< pdf "lectures/01-introduction/slides.pdf" >}}
+```
+
+**Notebook Shortcode:**
+```markdown
+---
+title: "Data Analysis"
+type: embedded
+embedded_type: notebook
+---
+
+{{< notebook "lectures/01-introduction/analysis.ipynb" >}}
+```
+
+The paths are relative to your `content` directory.
+
+#### Features
+
+- **PDFs**: Embedded in responsive iframes with full viewport support
+- **Jupyter Notebooks**: Client-side rendering with interactive outputs preserved
+- **Automatic Navigation**: PDF and notebook pages integrate with the theme's navigation system
+- **Custom Titles**: Auto-generated from filenames, or manually specified in frontmatter
 
 ## Custom Markdown Syntax
 
@@ -434,7 +537,9 @@ content/
     ├── 01-introduction/
     │   ├── _index.md
     │   ├── presentation.md
-    │   └── features-document.md
+    │   ├── features-document.md
+    │   ├── slides.pdf              # Auto-generates slides.gen.md
+    │   └── notebook-demo.ipynb     # Auto-generates notebook-demo.gen.md
     ├── 02-advanced/
     │   ├── _index.md
     │   ├── presentation.md
@@ -447,6 +552,8 @@ content/
 Each section can contain:
 - Multiple presentations
 - Multiple documents
+- PDF files (auto-converted to pages)
+- Jupyter notebooks (auto-converted to pages)
 - Nested subsections
 - Any combination of content types
 

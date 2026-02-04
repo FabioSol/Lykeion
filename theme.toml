@@ -7,6 +7,8 @@ tags = ["education", "learning", "lectures", "slides", "minimal", "clean", "acce
 features = [
   "Invisible interface design",
   "Slide-by-slide navigation",
+  "PDF embedding support",
+  "Jupyter notebook rendering",
   "Responsive and accessible",
   "Reduced eye strain",
   "Focus on content"

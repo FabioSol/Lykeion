@@ -3,8 +3,16 @@
 # This script finds PDFs and .ipynb files in content directories and creates
 # corresponding .md files so Hugo can render them as pages
 
-CONTENT_DIR="${1:-exampleSite/content}"
-STATIC_DIR="${2:-exampleSite/static}"
+# Detect if running from theme directory or project root
+if [ -d "exampleSite/content" ]; then
+    # Running from theme directory
+    DEFAULT_CONTENT_DIR="exampleSite/content"
+else
+    # Running from project root
+    DEFAULT_CONTENT_DIR="content"
+fi
+
+CONTENT_DIR="${1:-$DEFAULT_CONTENT_DIR}"
 
 echo "Cleaning up old generated files..."
 find "$CONTENT_DIR" -name "*.gen.md" -type f -delete
