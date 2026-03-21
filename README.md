@@ -34,12 +34,19 @@ Add to your `config.toml`:
     noClasses = false
     lineNos = true
     lineNumbersInTable = true
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]
 ```
 
 Then run:
 
 ```bash
-hugo mod init github.com/FabioSol/msc-thesis-notes
+hugo mod init github.com/FabioSol/{your repo}
 hugo mod get -u
 ```
 
@@ -61,7 +68,7 @@ content/
 
 1. **`[markup.highlight] noClasses = false`**: This is required for proper syntax highlighting with the theme's color scheme. Without this, code blocks will not be styled correctly.
 
-2. **`[markup.goldmark.extensions.passthrough]`**: This enables LaTeX math rendering via MathJax. Without this configuration, mathematical expressions will not render properly.
+2. **`[markup.goldmark.extensions.passthrough]`**: This enables LaTeX math rendering via MathJax. Without this configuration, mathematical expressions will not render properly — Markdown will parse LaTeX syntax (e.g., underscores `_` as emphasis) before MathJax can process it.
 
 ## Content Types
 
@@ -74,7 +81,7 @@ Horizontal slide-based layout perfect for lectures, talks, and presentations.
 Create a new presentation:
 
 ```bash
-hugo new lectures/my-lecture/presentation.md
+hugo new content/lectures/my-lecture/presentation.md
 ```
 
 Example frontmatter:
@@ -99,7 +106,7 @@ Vertical scrolling layout optimized for long-form reading and documentation.
 Create a new document:
 
 ```bash
-hugo new lectures/my-lecture/document.md
+hugo new content/lectures/my-lecture/document.md
 ```
 
 Example frontmatter:
@@ -617,7 +624,7 @@ Tested on:
 
 ### Math is not rendering
 
-Ensure you have added the math passthrough configuration to your `config.toml`:
+Ensure you have added the math passthrough configuration to your `config.toml`. This is required to prevent Markdown from parsing LaTeX syntax — without it, underscores in equations like `$x_1 + y_2$` will be rendered as italic text instead of subscripts.
 
 ```toml
 [markup.goldmark.extensions.passthrough]
