@@ -102,14 +102,61 @@
     return div.children.length > 0 ? div : null;
   }
 
+  // Protect math expressions from markdown parsing
+  function protectMath(md) {
+    var placeholders = [];
+    var counter = 0;
+
+    // Protect display math ($$...$$) first
+    md = md.replace(/\$\$([\s\S]*?)\$\$/g, function(match) {
+      var id = '%%MATH' + (counter++) + '%%';
+      placeholders.push({ id: id, content: match });
+      return id;
+    });
+
+    // Protect inline math ($...$)
+    md = md.replace(/\$([^\$]+?)\$/g, function(match) {
+      var id = '%%MATH' + (counter++) + '%%';
+      placeholders.push({ id: id, content: match });
+      return id;
+    });
+
+    // Protect \[...\] display math
+    md = md.replace(/\\\[([\s\S]*?)\\\]/g, function(match) {
+      var id = '%%MATH' + (counter++) + '%%';
+      placeholders.push({ id: id, content: match });
+      return id;
+    });
+
+    // Protect \(...\) inline math
+    md = md.replace(/\\\(([\s\S]*?)\\\)/g, function(match) {
+      var id = '%%MATH' + (counter++) + '%%';
+      placeholders.push({ id: id, content: match });
+      return id;
+    });
+
+    return { text: md, placeholders: placeholders };
+  }
+
+  function restoreMath(html, placeholders) {
+    placeholders.forEach(function(p) {
+      html = html.replace(p.id, p.content);
+    });
+    return html;
+  }
+
   // Basic markdown renderer (handles common cases)
   function renderMarkdown(md) {
     // Use marked.js if available, otherwise fallback to basic rendering
     if (typeof marked !== 'undefined') {
-      return marked.parse(md);
+      var result = protectMath(md);
+      var html = marked.parse(result.text);
+      return restoreMath(html, result.placeholders);
     }
 
     // Fallback basic renderer
+    var result = protectMath(md);
+    md = result.text;
     md = md.replace(/^### (.*$)/gim, '<h3>$1</h3>');
     md = md.replace(/^## (.*$)/gim, '<h2>$1</h2>');
     md = md.replace(/^# (.*$)/gim, '<h1>$1</h1>');
@@ -121,7 +168,7 @@
     md = md.replace(/\n\n/g, '</p><p>');
     md = md.replace(/\n/g, '<br>');
 
-    return '<p>' + md + '</p>';
+    return restoreMath('<p>' + md + '</p>', result.placeholders);
   }
 
   // Strip ANSI escape codes
