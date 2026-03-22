@@ -1,0 +1,48 @@
+/* Maps highlight.js classes to the theme's syntax color variables
+   so notebook code cells match Hugo's Chroma-styled code blocks. */
+
+.nb-code-cell pre code.hljs {
+    background: transparent;
+    padding: 0;
+}
+
+/* Keywords: import, from, def, class, return, if, else, for, while, etc. */
+.hljs-keyword { color: var(--syntax-keyword); font-weight: 600; }
+
+/* Built-in functions and types: print, len, range, int, str, etc. */
+.hljs-built_in { color: var(--syntax-function); }
+.hljs-type { color: var(--syntax-type); font-weight: 600; }
+
+/* Functions and class names */
+.hljs-title.function_ { color: var(--syntax-function); }
+.hljs-title.class_ { color: var(--syntax-type); font-weight: 600; }
+.hljs-title { color: var(--syntax-function); }
+
+/* Strings */
+.hljs-string { color: var(--syntax-string); }
+
+/* Numbers */
+.hljs-number { color: var(--syntax-number); }
+
+/* Comments */
+.hljs-comment { color: var(--syntax-comment); font-style: italic; }
+.hljs-doctag { color: var(--syntax-comment); font-style: italic; }
+
+/* Operators and punctuation */
+.hljs-operator { color: var(--syntax-operator); }
+.hljs-punctuation { color: var(--neutral-700); }
+
+/* Decorators and meta */
+.hljs-meta { color: var(--syntax-keyword); }
+.hljs-decorator { color: var(--syntax-keyword); }
+
+/* Variables and params */
+.hljs-variable { color: var(--neutral-900); }
+.hljs-params { color: var(--neutral-900); }
+
+/* String interpolation and escapes */
+.hljs-subst { color: var(--syntax-number); }
+.hljs-char.escape_ { color: var(--syntax-number); }
+
+/* Literals: True, False, None */
+.hljs-literal { color: var(--syntax-keyword); font-weight: 600; }

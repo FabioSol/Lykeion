@@ -3,7 +3,7 @@
 
 (function() {
   // Render a single notebook cell
-  function renderCell(cell) {
+  function renderCell(cell, language) {
     const cellDiv = document.createElement('div');
     cellDiv.className = 'nb-cell';
 
@@ -31,6 +31,9 @@
       // Render source code
       const sourceDiv = document.createElement('pre');
       const codeElem = document.createElement('code');
+      if (language) {
+        codeElem.className = 'language-' + language;
+      }
       const source = Array.isArray(cell.source) ? cell.source.join('') : cell.source;
       codeElem.textContent = source;
       sourceDiv.appendChild(codeElem);
@@ -197,12 +200,29 @@
         .then(function(notebook) {
           container.innerHTML = '';
 
+          // Detect language from notebook metadata
+          var language = '';
+          if (notebook.metadata) {
+            if (notebook.metadata.language_info && notebook.metadata.language_info.name) {
+              language = notebook.metadata.language_info.name;
+            } else if (notebook.metadata.kernelspec && notebook.metadata.kernelspec.language) {
+              language = notebook.metadata.kernelspec.language;
+            }
+          }
+
           // Render all cells
           if (notebook.cells && Array.isArray(notebook.cells)) {
             notebook.cells.forEach(function(cell) {
-              const cellElem = renderCell(cell);
+              const cellElem = renderCell(cell, language);
               container.appendChild(cellElem);
             });
+
+            // Apply syntax highlighting to code cells
+            if (typeof hljs !== 'undefined') {
+              container.querySelectorAll('.nb-code-cell pre code').forEach(function(block) {
+                hljs.highlightElement(block);
+              });
+            }
 
             // Trigger MathJax to render LaTeX if available
             // Wait for next animation frame to ensure DOM is fully rendered

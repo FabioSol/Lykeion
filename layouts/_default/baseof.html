@@ -53,8 +53,11 @@
     {{ end }}
     {{ block "head" . }}{{ end }}
 
-    <!-- Markdown and Math support for notebooks -->
+    <!-- Notebook support: markdown parsing and syntax highlighting -->
     <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+    <link rel="stylesheet" href="{{ "css/utils/notebook-hljs.css" | relURL }}">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/languages/python.min.js"></script>
     {{ if not (.Param "math") }}
         {{ partial "math.html" . }}
     {{ end }}
