@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="{{ "css/markdown/mermaid.css" | relURL }}">
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+    const nodes = [...document.querySelectorAll('pre.mermaid')];
+
+    // Stash the original diagram source so we can re-render on theme changes,
+    // since mermaid replaces the element's content with an <svg>.
+    nodes.forEach((node) => {
+        node.dataset.source = node.textContent;
+    });
+
+    // Theme is driven by `color-scheme` on <html> (see theme.js / colors.css).
+    const currentTheme = () =>
+        document.documentElement.style.colorScheme === 'dark' ? 'dark' : 'default';
+
+    async function render() {
+        mermaid.initialize({ startOnLoad: false, theme: currentTheme() });
+        nodes.forEach((node) => {
+            node.removeAttribute('data-processed');
+            node.innerHTML = node.dataset.source;
+        });
+        try {
+            await mermaid.run({ nodes });
+        } catch (err) {
+            console.error('Mermaid render failed:', err);
+        }
+    }
+
+    render();
+
+    // Re-render whenever the theme toggles (theme.js mutates the style attribute).
+    let lastScheme = document.documentElement.style.colorScheme;
+    new MutationObserver(() => {
+        const scheme = document.documentElement.style.colorScheme;
+        if (scheme !== lastScheme) {
+            lastScheme = scheme;
+            render();
+        }
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ['style'] });
+</script>

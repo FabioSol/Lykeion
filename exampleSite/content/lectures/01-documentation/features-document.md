@@ -180,6 +180,42 @@ done
 
 All code blocks include line numbers and use a colorblind-friendly syntax highlighting palette. If language is omitted, there is no syntax highlighting or header.
 
+## Diagrams
+
+Lykeion renders [Mermaid](https://mermaid.js.org/) diagrams from fenced code blocks tagged with the `mermaid` language. Diagrams adapt automatically to the active light or dark theme.
+
+**Flowchart:**
+
+```mermaid
+flowchart TD
+    A[Write Markdown] --> B{Fenced as mermaid?}
+    B -->|Yes| C[Render as diagram]
+    B -->|No| D[Syntax highlight]
+    C --> E[Adapts to theme]
+    D --> E
+```
+
+````markdown
+```mermaid
+flowchart TD
+    A[Write Markdown] --> B{Fenced as mermaid?}
+    B -->|Yes| C[Render as diagram]
+    B -->|No| D[Syntax highlight]
+```
+````
+
+**Sequence diagram:**
+
+```mermaid
+sequenceDiagram
+    participant Author
+    participant Hugo
+    participant Browser
+    Author->>Hugo: Write mermaid code block
+    Hugo->>Browser: Emit raw diagram source
+    Browser->>Browser: Render with mermaid.js
+```
+
 ## Mathematical Expressions
 
 Lykeion supports LaTeX mathematical notation through MathJax, enabling both inline and display mathematics:

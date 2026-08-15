@@ -1,0 +1,34 @@
+.content .mermaid,
+.slide .mermaid {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 1.5rem 1rem;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.content .mermaid::-webkit-scrollbar,
+.slide .mermaid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.slide .mermaid {
+    margin: 1.5cqw 0;
+}
+
+/* Hide the raw diagram source until mermaid.js swaps in the rendered SVG. */
+.content .mermaid:not([data-processed="true"]),
+.slide .mermaid:not([data-processed="true"]) {
+    visibility: hidden;
+}
+
+.content .mermaid svg,
+.slide .mermaid svg {
+    max-width: 100%;
+    height: auto;
+}

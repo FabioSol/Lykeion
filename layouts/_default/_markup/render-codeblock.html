@@ -1,20 +1,27 @@
 {{- $lang := .Type -}}
 {{- $code := .Inner -}}
-{{- $options := dict "lineNos" true "lineNumbersInTable" true -}}
 
-{{- if $lang -}}
-  {{- $options = merge $options (dict "lang" $lang) -}}
+{{- if eq $lang "mermaid" -}}
+  {{/* Mermaid diagrams: emit raw source for the mermaid.js runtime, not syntax highlighting. */}}
+  {{- .Page.Store.Set "hasMermaid" true -}}
+  <pre class="mermaid">{{ $code }}</pre>
 {{- else -}}
-  {{/* Use "text" as default language for plain code blocks to enable line numbers */}}
-  {{- $lang = "text" -}}
-  {{- $options = merge $options (dict "lang" "text") -}}
-{{- end -}}
+  {{- $options := dict "lineNos" true "lineNumbersInTable" true -}}
 
-<div class="code-block">
-  {{- if ne $lang "text" -}}
-    <div class="code-header">
-      <span class="code-lang">{{ $lang }}</span>
-    </div>
+  {{- if $lang -}}
+    {{- $options = merge $options (dict "lang" $lang) -}}
+  {{- else -}}
+    {{/* Use "text" as default language for plain code blocks to enable line numbers */}}
+    {{- $lang = "text" -}}
+    {{- $options = merge $options (dict "lang" "text") -}}
   {{- end -}}
-  {{ highlight $code $lang $options }}
-</div>
+
+  <div class="code-block">
+    {{- if ne $lang "text" -}}
+      <div class="code-header">
+        <span class="code-lang">{{ $lang }}</span>
+      </div>
+    {{- end -}}
+    {{ highlight $code $lang $options }}
+  </div>
+{{- end -}}

@@ -74,5 +74,10 @@
 
     <!-- Notebook Loader -->
     <script src="{{ "js/notebook-loader.js" | relURL }}"></script>
+
+    {{/* Loaded only on pages that actually contain a mermaid diagram (flag set by render-codeblock.html). */}}
+    {{ if .Store.Get "hasMermaid" }}
+        {{ partial "mermaid.html" . }}
+    {{ end }}
 </body>
 </html>

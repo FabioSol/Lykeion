@@ -251,6 +251,31 @@ func main() {
 }
 ```
 
+---[title-content]
+
+## Diagrams
+%%%
+
+Mermaid diagrams from a `mermaid` code block:
+
+```mermaid
+flowchart LR
+    A[Idea] --> B[Slide]
+    B --> C[Diagram]
+    C --> A
+```
+%%%
+
+Diagrams adapt to the active theme
+
+syntax:
+```
+    ```mermaid
+    flowchart LR
+        A[Idea] --> B[Slide]
+    ```
+```
+
 ---
 ## Mathematical Expressions (inline)
 
